@@ -1,9 +1,12 @@
 //required parameter for hiking trail api 
 var latitude;
-//
+//required parameter for hiking trail api
 var longitude;
+//address for grabing the latitude and longitude for the hiking trail
 var address = "chicago+IL+60622";
+
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
+
 var googleLocationURL =
   "https://cors-anywhere.herokuapp.com/" +
   `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${googleKey}`;
@@ -20,13 +23,14 @@ $.ajax({
 //required key parameter
   var hikingKey = "200389890-8a7115b52b480cbc8bf26a0516b28e9d";
   // max distance in miles default 30, max 200
-  var maxDistance = "200";
+  var maxDistance = "30";
   //default 10 trails up to 500 trails
   var maxResults = "10";
   //default quality can use distance
   var sort = "";
   //minium length default 0 mile
   var minLength = "distance";
+  // the required parameters for the hiking api is latitude, longitude, and key
   var hikingURL = `https://www.hikingproject.com/data/get-trails?lat=${latitude}&minLength=${minLength}&sort=${sort}&lon=${longitude}&  maxDistance=${maxDistance}&maxResults=${maxResults}&key=${hikingKey}`;
   $.ajax({
     url: hikingURL,
@@ -53,21 +57,26 @@ $.ajax({
   }).then(function(response) {
     console.log(response);
   });
+  
 });
 //address for grabbing latitude and longitude
 
 /************************** User Input Validation Below ************************/
 const formZipCode = $();
-const formLongitude = $();
-const formLatitude = $();
-const formTransit = $();
 const formMaxResults = $();
 const formMinTrailLength = $();
+const formTypeOfPlace = $();
 
 const defaultTransit = "car";
 const defaultMaxResults = 10;
 const formMinTrailLength = 0;
 const defaultTypeOfPlace = "bikeshop";
+
+
+/** If a flag is false, the user input is invalid; do not proceed with API req */
+var flagZipCode = false;
+var flagMaxResults = false;
+var flagMinTrailLength = false;
 
 /********************************************************************************
 * User Input for destination name (string)
@@ -85,56 +94,35 @@ function getZipCode() {
   //invalid input condition
   if (userIn == undefined || userIn === "") {
     invalidInput(formZipCode, "Invalid Input: Zip Code");
-    return undefined;
+    flagZipCode = false;
+    return "";
   } else {
+    flagZipCode = true;
     return userIn;
   }
 }
 
 /********************************************************************************
-* User Input for longitude
-********************************************************************************/
-function getLong() {
-  var userLong = formLong.val();
-  //invalid input condition
-  if (userLong == undefined || userLong === "") {
-    invalidInput(formDestiation, "Invalid Input: Longitude");
-    return undefined;
-  } else {
-    return userLat;
-  }
-}
-
-/********************************************************************************
-* User Input for latitude
-********************************************************************************/
-function getLat() {
-  var userLat = formLong.val();
-  //invalid input condition
-  if (userLat == undefined || userLat === "") {
-    invalidInput(formDestiation, "Invalid Input: Latitude");
-    return undefined;
-  } else {
-    return userLat;
-  }
-}
-/********************************************************************************
 * User Input for method of Transportation (for getting airport or train station) 
+* Gets input from example select form element
 ********************************************************************************/
 function getTransit() {
-  var userTransit = formTransit.val();
-  //invalid input condition
-  if (userTransit == undefined || userTransit === "") {
-    invalidInput(formTransit, "Invalid Input: Transit");
-    return undefined;
-  } else {
-    return userLat;
-  }
+  userTransit = $("transit-input option:selected").val();
 }
 /********************************************************************************
 * User Input for Max number of Results returned for hiking trails
 ********************************************************************************/
+function getMaxResults() {
+  var userMax = formMaxResults.val();
+  //invalid input condition
+  userMax = parseInt(userMax) {
+    if (userMax < 0) {
+      invalidInput(formMaxResults, "Invalid Input: Max Results cannot be less than 0");
+      return defaultMaxResults;
+    }
 
+  }
+}
 /********************************************************************************
 * User Input for Minimum Length of hiking trail
 ********************************************************************************/
