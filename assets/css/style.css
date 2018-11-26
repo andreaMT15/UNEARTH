@@ -8,7 +8,8 @@
   height: 100%;
 }
 
-.container {
+.container,
+.row {
   background-color: darkgrey;
   color: white;
   font-weight: bold;
@@ -18,4 +19,5 @@
   width: 20%;
   margin: 15px;
   text-align: left;
+  float: center;
 }
