@@ -2,14 +2,14 @@
 // var latLng = [];
 
 //address for grabing the latitude and longitude for the hiking trail
-var address = "chicago+IL+60622";
+var userAddress = "chicago+IL+60622";
 
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
 //funciton for passing in address returns array latitude, longitude.
-function toLatLng(arg1) {
+function toLatLng(address) {
   var googleLocationURL =
     "https://cors-anywhere.herokuapp.com/" +
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${arg1}&key=${googleKey}`;
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${googleKey}`;
   $.ajax({
     url: googleLocationURL,
     method: "GET"
@@ -18,12 +18,12 @@ function toLatLng(arg1) {
     console.log(response.results[0].geometry.location.lat);
     fetchTrails(
       response.results[0].geometry.location.lat,
-      response.results[0].geometry.location.lgn
+      response.results[0].geometry.location.lng
     );
   });
 }
 
-toLatLng(address);
+toLatLng(userAddress);
 
 function fetchTrails(lat, long) {
   //required key parameter
