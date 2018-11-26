@@ -1,3 +1,21 @@
-body {
-  background-color: blueviolet;
+* {
+  background-image: url(../images/adventure-canyon-creek-227677.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background-color: darkgrey;
+  color: white;
+  font-weight: bold;
+  font-size: 16pt;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  height: 25px;
+  width: 20%;
+  margin: 15px;
+  text-align: left;
 }
