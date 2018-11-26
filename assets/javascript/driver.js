@@ -1,6 +1,13 @@
-// on submit 
+// on submit
 $("#submit-btn").on("click", function() {
   event.preventDefault();
+
+  // removes 'invalid' class from any form elements
+  // ('invalid' will be added again if it input is invalid)
+  $(".invalid").each(function() {
+    $(this).removeClass("invalid")
+  });
+  
 
   // if basic search
   if (!flagAdvancedSearch) {
@@ -8,7 +15,6 @@ $("#submit-btn").on("click", function() {
     address = getAddress();
     if (flagAddress) {
       //change this to a modal or form validation in the future
-      alert("Invalid Address");
       return;
     } else { //valid search condition
 
@@ -45,6 +51,4 @@ $("#submit-btn").on("click", function() {
     /***************** Call API here **********************/
 
   }
-
-  
 });
