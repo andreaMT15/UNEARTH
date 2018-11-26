@@ -1,4 +1,4 @@
-* {
+body {
   background-image: url(../images/adventure-canyon-creek-227677.jpg);
   background-size: cover;
   background-position: center;
@@ -8,16 +8,19 @@
   height: 100%;
 }
 
-.container,
-.row {
-  background-color: darkgrey;
-  color: white;
-  font-weight: bold;
-  font-size: 16pt;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  height: 25px;
-  width: 20%;
-  margin: 15px;
-  text-align: left;
-  float: center;
+.form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.card-sm {
+  position: relative;
+  top: 300px;
 }
