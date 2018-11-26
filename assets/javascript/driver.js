@@ -16,6 +16,7 @@ $("#submit-btn").on("click", function() {
 
     }
   }
+
   // if advanced search
   else if (flagAdvancedSearch) {
     // if any flags are true, cancel do not call API. Prompt user on form
@@ -42,6 +43,8 @@ $("#submit-btn").on("click", function() {
     transit = getTransit();
 
     /***************** Call API here **********************/
-    
+
   }
+
+  
 });

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // //required parameter for hiking trail api 
 // var latLng = []
 
@@ -78,6 +79,8 @@
 
 
 // }
+=======
+>>>>>>> f6e5a192d56f7007794ec6613b49f857c0e6e96b
 /************************** User Input Validation Below ************************/
 const formAddress = $();
 const formMaxTrailResults = $();
@@ -127,13 +130,12 @@ function getAddress() {
 }
 
 /********************************************************************************
- * User Input for method of Transportation (for getting airport or train station) 
+ * User Input for method of Transportation (for getting airport or train station)
  * Gets input from example select form element
  ********************************************************************************/
 function getTransit() {
   userTransit = $("transit-input option:selected").val();
 }
-
 
 /********************************************************************************
  * User Input for Minimum Length of hiking trail
@@ -148,8 +150,16 @@ function getMinTrailLength() {
   //invalid input condition
   userIn = parseInt(userIn);
   if (userIn < 0) {
+<<<<<<< HEAD
     invalidInput(formMinTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
     flagMinTrailLength = true;
+=======
+    invalidInput(
+      formmaxTrailResults,
+      "Invalid Input: Min Trail Length cannot be less than 0"
+    );
+    flagMinTrailLength = false;
+>>>>>>> f6e5a192d56f7007794ec6613b49f857c0e6e96b
     return defaultMinTrailLength;
   } else {
     flagMinTrailLength = false;
@@ -169,7 +179,21 @@ function getMaxTrailResults() {
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
+<<<<<<< HEAD
     invalidInput(formMaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
+=======
+    invalidInput(
+      formMaxTrailResults,
+      "Invalid Input: Min Trail Length cannot be less than 0"
+    );
+    flagMaxTrailResults = false;
+    return defaultmaxTrailResults;
+  } else if (userIn > maxValuemaxTrailResults) {
+    console.log(
+      "Warning: Max Trail Results exceeded limit, set to max of " +
+        maxValuemaxTrailResults
+    );
+>>>>>>> f6e5a192d56f7007794ec6613b49f857c0e6e96b
     flagMaxTrailResults = true;
     return defaultMaxTrailResults;
   } else if (userIn > maxValueMaxTrailResults) {
