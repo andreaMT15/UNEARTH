@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/forms.css">
 </head>
 
 <body>
@@ -50,19 +51,46 @@
 
     <!-- form container -->
     <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8">
+      <div class="col-lg-7 col-md-8 col-sm-10">
         <!-- row containing first form containing basic search bar and button -->
         <div class="row justify-content-center">
-          <form class="form my-2 my-lg-0 col-lg-12">
-          <!-- address search textbox -->
-            <input class="form-control mr-sm-2 col-lg-10 col-md-3 col-sm-8" id="search-input" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0 col-lg-2 col-md-3 col-sm-4" type="submit">Search</button>
-          </form> <!-- end basic address search form -->
-        </div> <!-- end row containing basic search bar and button-->
-        
-        <!-- advanced search form (hidden by default) -->
-        <div class="row justify-content-center">
+
           <form>
+            <!-- address search textbox -->
+            <div class="form-group">
+              <input class="form-control" id="search-input" type="text" placeholder="Address or Zip Code">
+            </div>
+            <!-- end basic address search form -->
+            <div id="adv-search-form">
+              <!-- advanced search form (hidden by default) -->
+              <div class="form-group">
+                <input class="form-control" id="keyword-input" type="text" placeholder="Keyword">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="search-radius-input" type="text" placeholder="Search Radius">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="min-trail-length-input" type="text" placeholder="Minimum Trail Length">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="max-results-input" type="text" placeholder="Max of Results to Show">
+              </div>
+            </div> <!-- end advanced search form -->
+
+            <!-- form search button (with dropdown) -->
+            <div class="form-group">
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button id="search-btn" type="button" class="btn btn-secondary">Search</button>
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <button id="adv-search-drop" class="dropdown-item" >Advanced Search</button>
+                  </div> <!-- end dropdown menu items-->
+                </div> <!-- end inner (dropdown arrow) button -->
+              </div> <!-- end button container-->
+            </div> <!-- end button form group-->
+
           </form> <!-- end of advanced search form -->
         </div> <!-- end row containing advanced search form-->
       </div> <!-- end col containing ALL forms -->
@@ -72,7 +100,6 @@
 
 
   </div> <!-- end container id="search" -->
-
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -92,4 +119,3 @@
 </body>
 
 </html>
-
