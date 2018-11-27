@@ -25,33 +25,75 @@ function toLatLng(address) {
 
 toLatLng(userAddress);
 
-function fetchTrails(lat, long) {
+var hikingParameters = {
   //required key parameter
-  var hikingKey = "200389890-8a7115b52b480cbc8bf26a0516b28e9d";
+  hikingKey: "200389890-8a7115b52b480cbc8bf26a0516b28e9d",
   // max distance in miles default 30, max 200
-  var maxDistance = "30";
+  maxDistance: "30",
   //default 10 trails up to 500 trails
-  var maxTrailResults = "10";
+  maxTrailResults: "10",
   //default quality can use distance
-  var sort = "";
+  sort: "",
   //minium length default 0 mile
-  var minLength = "distance";
+  minLength: "1"
+};
+
+function fetchTrails(lat, long) {
   // the required parameters for the hiking api is latitude, longitude, and key
-  var hikingURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&minLength=${minLength}&sort=${sort}&lon=${long}&  maxDistance=${maxDistance}&maxTrailResults=${maxTrailResults}&key=${hikingKey}`;
+  var hikingURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&minLength=${
+    hikingParameters.minLength
+  }&sort=${hikingParameters.sort}&lon=${long}&  maxDistance=${
+    hikingParameters.maxDistance
+  }&maxTrailResults=${hikingParameters.maxTrailResults}&key=${
+    hikingParameters.hikingKey
+  }`;
   $.ajax({
     url: hikingURL,
     method: "GET"
   }).then(function(response) {
     console.log(response);
+    for (var i = 0; i < response.trails.length; i++) {
+      var newCard = $("<div class='card col-md-6'>");
+      var cardImg = $(
+        `<img class="card-img-top" src=${
+          response.trails[i].imgMedium
+        } alt=hiking-trail${i}>`
+      );
+      var cardBody = $("<div class=card-body>");
+      var cardTitle = $("<h5 class=card-title>");
+      cardTitle.text(response.trails[i].name);
+      var cardText = $("<p class='card-text'>");
+      cardText.text(
+        `${response.trails[i].summary} Difficulty: ${
+          response.trails[i].difficculty
+        }`
+      );
+      newCard.append(cardImg);
+      newCard.append(cardBody);
+      newCard.append(cardTitle);
+      newCard.append(cardText);
+      $("#trails").append(newCard);
+    }
+
+    //   <div class="card" "col-md-4">
+    //   <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    //   <div class="card-body">
+    //     <h5 class="card-title">Card title</h5>
+    //     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    //     <a href="#" class="btn btn-primary">Go somewhere</a>
+    //   </div>
+    // </div>
   });
 }
 function googlePlace() {
+  //required parameter
   var googleLatitude = "41.895481";
+  //required parameter
   var googleLongitude = "-87.675133";
   // radius in meters  max meters: 50000
   var radius = "10";
   // where we can put in the type of place we want to search for
-  // var typeOfPlace = "bikeshop";
+  var typeOfPlace = "";
   // keyword can be any word that google assoicates with the places it will return
   var keyword = "";
 
