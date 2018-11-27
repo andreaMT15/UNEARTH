@@ -1,5 +1,5 @@
 body {
-  background-image: url(../images/adventure-canyon-creek-227677.jpg);
+  background-image: url(../images/project-background-1.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -23,7 +23,7 @@ body {
 
 .card-sm {
   position: relative;
-  top: 150px;
+  top: 300px;
 }
 
 .jumbotron {
@@ -41,4 +41,24 @@ i {
   color: black;
   height: 5px;
   width: 5px;
+}
+
+#heading-box {
+  background-color: darkgreen;
+  opacity: 0.8;
+  z-index: 1;
+  width: 65%;
+  height: 150px;
+  position: relative;
+  top: 30px;
+  padding: 20px;
+}
+
+#instructions {
+  opacity: 100%;
+  z-index: 2;
+  position: relative;
+  bottom: 110px;
+  border: solid white 5px;
+  padding: 10px;
 }
