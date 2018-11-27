@@ -1,44 +1,47 @@
 /************************** User Input Validation Below ************************/
-const formZipCode = $();
-const formmaxTrailResults = $();
+const formAddress = $("#search-input");
+const formMaxTrailResults = $();
 const formMinTrailLength = $();
-const formTypeOfPlace = $();
+const formMaxDistance = $();
+const formKeyword = $();
 
 const defaultTransit = "car";
-const defaultmaxTrailResults = 10;
+const defaultMaxTrailResults = 10;
 const defaultMinTrailLength = 0;
-const defaultTypeOfPlace = "bikeshop";
+const defaultKeyword = "";
+const defaultMaxDistance = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
-const maxValuemaxTrailResults = 10;
+const maxValueMaxTrailResults = 10;
 
 /** If false, the search is basic and only the user location/zip code is used */
 var flagAdvancedSearch = false;
-/** If a flag is false, the user input is invalid; do not proceed with API req */
-var flagZipCode = false;
-var flagMaxTrailResults = false;
-var flagMinTrailLength = false;
+/** If a flag is true, the user input is invalid; do NOT proceed with API call */
+var flagAddress = true;
+var flagMaxTrailResults = true;
+var flagMinTrailLength = true;
+var flagMaxDistance = true;
 
 /********************************************************************************
  * User Input for destination name (string)
  ********************************************************************************/
 function invalidInput(field, message) {
-  field.css("background-color", "rgb(255,0,0,0.3");
+  field.addClass("invalid");
   console.log(message);
 }
 
 /********************************************************************************
  * User Input for zip code
  ********************************************************************************/
-function getZipCode() {
-  var userIn = formZipCode.val();
+function getAddress() {
+  var userIn = formAddress.val();
   //invalid input condition
   if (userIn == undefined || userIn === "") {
-    invalidInput(formZipCode, "Invalid Input: Zip Code");
-    flagZipCode = false;
+    invalidInput(formAddress, "Invalid Input: Address");
+    flagAddress = true;
     return "";
   } else {
-    flagZipCode = true;
+    flagAddress = false;
     return userIn;
   }
 }
@@ -56,6 +59,11 @@ function getTransit() {
  ********************************************************************************/
 function getMinTrailLength() {
   var userIn = formMinTrailLength.val();
+  if (userIn === "" || userIn == undefined) {
+    flagMinTrailLength = false;
+    console.log("No Input: Min Trail Length - set to default");
+    return defaultMinTrailLength;
+  }
   //invalid input condition
   userIn = parseInt(userIn);
   if (userIn < 0) {
@@ -66,7 +74,7 @@ function getMinTrailLength() {
     flagMinTrailLength = false;
     return defaultMinTrailLength;
   } else {
-    flagMinTrailLength = true;
+    flagMinTrailLength = false;
     return userIn;
   }
 }
@@ -75,23 +83,60 @@ function getMinTrailLength() {
  * User Input for Max number of Results returned for hiking trails
  ********************************************************************************/
 function getMaxTrailResults() {
-  userIn = userMaxTrailResults.val();
-  if (userIn < 0) {
-    invalidInput(
-      formMaxTrailResults,
-      "Invalid Input: Min Trail Length cannot be less than 0"
-    );
+  var userIn = formMaxTrailResults.val();
+  if (userIn === "" || userIn == undefined) {
     flagMaxTrailResults = false;
-    return defaultmaxTrailResults;
-  } else if (userIn > maxValuemaxTrailResults) {
-    console.log(
-      "Warning: Max Trail Results exceeded limit, set to max of " +
-        maxValuemaxTrailResults
-    );
+    console.log("No Input: Max Trail Results - set to default");
+    return defaultMaxTrailResults;
+  }
+  userIn = parseInt(userIn);
+  if (userIn < 0) {
+    invalidInput(formMaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
     flagMaxTrailResults = true;
-    return maxValuemaxTrailResults;
+    return defaultMaxTrailResults;
+  } else if (userIn > maxValueMaxTrailResults) {
+    console.log("Warning: Max Trail Results exceeded limit, set to max of " + maxValueMaxTrailResults);
+    flagMaxTrailResults = false;
+    return maxValueMaxTrailResults;
   } else {
-    flagMaxTrailResults = true;
+    flagMaxTrailResults = false;
+    return userIn;
+  }
+}
+
+/********************************************************************************
+ * User Input for Max distance of results from input location
+ ********************************************************************************/
+function getMaxDistance() {
+  var userIn = formMaxDistance.val();
+  if (userIn === "" || userIn == undefined) {
+    flagMaxDistance = false;
+    console.log("No Input: Max Distance - set to default");
+    return defaultDistance;
+  }
+  userIn = parseInt(userIn);
+  if (userIn < 0) {
+    invalidInput(formMaxDistance, "Invalid Input: Max Distance cannot be less than 0");
+    flagMaxDistance = true;
+    return defaultMaxDistance;
+  } else if (userIn === 0) {
+    console.log("Warning: Max Distance set to default because input was 0");
+    flagMaxDistance = false;
+    return defaultMaxDistance;
+  } else {
+    flagMaxDistance = false;
+    return userIn;
+  }
+}
+
+/********************************************************************************
+ * User Input for Max distance of results from input location
+ ********************************************************************************/
+function getKeyword() {
+  var userIn = formKeyword.val();
+  if (userIn == undefined || userIn === "") {
+    return "";
+  } else {
     return userIn;
   }
 }
