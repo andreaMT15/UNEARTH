@@ -1,9 +1,9 @@
 /************************** User Input Validation Below ************************/
 const formAddress = $("#search-input");
-const formMaxTrailResults = $();
-const formMinTrailLength = $();
-const formSearchRadius = $();
-const formKeyword = $();
+const formMaxTrailResults = $("#max-results-input");
+const formMinTrailLength = $("#min-trail-length-input");
+const formSearchRadius = $("#search-radius-input");
+const formKeyword = $("#keyword-input");
 
 const defaultTransit = "car";
 const defaultMaxTrailResults = 10;
@@ -13,9 +13,6 @@ const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
 const maxValueMaxTrailResults = 10;
-
-/** If false, the search is basic and only the user location/zip code is used */
-var flagAdvancedSearch = false;
 
 /********************************************************************************
  * User Input for destination name (string)
