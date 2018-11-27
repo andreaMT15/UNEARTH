@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       type="text/css"
@@ -38,14 +39,28 @@
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-        </ul>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Trails
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Advanced Search</a>
+          </ul>
       </div>
     </nav>
-
     <!-- This is the zip code search -->
     <div class="container" id="search">
-      <br />
+  
+      <div>
+        <br />
+        <h1>Hey groot lovers!</h1>
+        <h2>
+          Search a zip code below to find the hiking trails closest to you along
+          with transit information and the closest places to eat.
+        </h2>
+      </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
           <form class="card card-sm">
@@ -55,6 +70,7 @@
             >
               <div class="col-auto">
                 <i class="fas fa-search h4 text-body"></i>
+                
               </div>
               <!-- end of col -->
               <div class="col">
@@ -64,53 +80,62 @@
                   type="search"
                   placeholder="Search Zip Code"
                 />
+        
               </div>
               <!-- end of col -->
-              <div class="col-auto">
-                <button
-                  class="btn btn-lg btn-success"
-                  type="submit"
-                  id="submit"
-                >
-                  Search
-                </button>
-              </div>
-              <!-- end of col -->
-            </div>
-          </form>
-        </div>
-        <!-- end of col -->
+  <!-- Dropdown Button -->
+  <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <button type="button" class="btn btn-success">Search</button>
+    <div class="btn-group" role="group">
+      <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"></button>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop2" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+        <a class="dropdown-item" href="#">Advanced Search</a>
       </div>
+      <!-- end of col -->
     </div>
-
+  </div>
+</div>
+<!-- Form will be hidden -->
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
     <!-- Container to display the data on the screen -->
     <div class="jumbotron">
       <h1 class="display-4">Trails</h1>
       <hr class="my-4" />
       <div class="container"><div id="trails" class="row"></div></div>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
 
 
-     <!-- Footer -->
-    <!-- Background image change script -->
-    <script src="assets/javascript/background.js"></script>
-    <script src="assets/javascript/api.js"></script>
-    <script src="assets/javascript/ui.js"></script>
-    <script src="assets/javascript/driver.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- Background image change script -->
+  <script src="assets/javascript/ui.js"></script>
+  <script src="assets/javascript/api.js"></script>
+  <script src="assets/javascript/driver.js"></script>
+  
+
+
+</body>
+
 </html>
+

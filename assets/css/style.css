@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  color: white;
 }
 
 .form-control-borderless {
@@ -39,4 +40,15 @@ h1 {
 
 
 
+h1,
+h2 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+i {
+  color: black;
+  height: 5px;
+  width: 5px;
+}
 

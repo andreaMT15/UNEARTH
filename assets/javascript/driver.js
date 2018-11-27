@@ -1,54 +1,57 @@
-// on submit
-$("#submit").on("click", function() {
-  event.preventDefault();
+$(document).ready(function() {
+  //advanced search form hidden by default
+  $("#adv-search-form").hide();
+  
+  $("#basic-search-btn").on("click", function() {
+    event.preventDefault();
 
-  // removes 'invalid' class from any form elements
-  // ('invalid' will be added again if it input is invalid)
-  $(".invalid").each(function() {
-    $(this).removeClass("invalid")
+    // removes 'invalid' class from any form elements
+    // ('invalid' will be added again if it input is invalid)
+    $(".invalid").each(function() {
+      $(this).removeClass("invalid")
+    });
+
+    //address saved to session storage
+    getAddress();
+
+    console.log(sessionStorage.getItem("address"));
+    if (sessionStorage.getItem("address") === undefined ||
+      sessionStorage.getItem("address") === "") {
+      console.log("Invalid Address")
+    } else {
+      window.open("results.html", "_self");
+    }
   });
-  console.log(getAddress);
-  // if basic search
-  if (!flagAdvancedSearch) {
-    // get address from User
-    address = getAddress();
-    console.log(address);
-    if (flagAddress) {
-      //change this to a modal or form validation in the future
-      return;
-    } else { //valid search condition
 
-      /********* Call API functions here ********/
-      toLatLng(address);
-    }
-  }
+  $("#adv-search-btn").on("click", function() {
+    event.preventDefault();
+    
+    // removes 'invalid' class from any form elements
+    // ('invalid' will be added again if it input is invalid)
+    $(".invalid").each(function() {
+      $(this).removeClass("invalid")
+    });
 
-  // if advanced search
-  else if (flagAdvancedSearch) {
-    // if any flags are true, cancel do not call API. Prompt user on form
-    address = getAddress();
-    if (flagAddress) {
-      return;
+    // if advanced search
+    if (flagAdvancedSearch) {
+      hikingParameters.minTrailLength = sessionStorage.getItem("minTrailLength");
+      hikingParameters.maxTrailResults = sessionStorage.getItem("maxTrailResults");
+      hikingParameters.searchRadius = sessionStorage.getItem("searchRadius");
     }
 
-    hikingParameters.minTrailLength = getMinTrailLength();
-    if (flagMinTrailLength) {
-      return;
-    }
+    //address saved to session storage
+    getAddress();
 
-    hikingParameters.maxTrailResults = getMaxTrailResults();
-    if (flagMaxTrailResults) {
-      return;
+    console.log(sessionStorage.getItem("address"));
+    if (sessionStorage.getItem("address") === undefined ||
+      sessionStorage.getItem("address") === "") {
+      console.log("Invalid Address")
+    } else {
+      window.open("results.html", "_self");
     }
+  });
 
-    hikingParameters.maxDistance = getMaxDistance();
-    if (flagMaxDistance) {
-      return;
-    }
-
-    console.log(address);
-    console.log(hikingParameters);
-    /***************** Call API here **********************/
-    toLatLng(address);
-  }
+  $("#adv-search-drop").on("click", function() {
+    $("#adv-search-form").show();
+  });
 });
