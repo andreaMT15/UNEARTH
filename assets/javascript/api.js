@@ -2,7 +2,7 @@
 // var latLng = [];
 
 //address for grabing the latitude and longitude for the hiking trail
-var userAddress = "chicago+IL+60622";
+var address = "";
 
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
 //funciton for passing in address returns array latitude, longitude.
@@ -22,8 +22,6 @@ function toLatLng(address) {
     );
   });
 }
-
-toLatLng(userAddress);
 
 var hikingParameters = {
   //required key parameter
@@ -54,11 +52,19 @@ function fetchTrails(lat, long) {
     console.log(response);
     for (var i = 0; i < response.trails.length; i++) {
       var newCard = $("<div class='card col-md-6'>");
-      var cardImg = $(
-        `<img class="card-img-top" src=${
-          response.trails[i].imgMedium
-        } alt=hiking-trail${i}>`
-      );
+      if (response.trails[i].imgMedium === "" || response.trails[i].imgMedium == undefined) {
+        var cardImg = $(
+          `<img class="card-img-top" src=
+            "assets/images/groot.jpg"
+          } alt=hiking-trail${i}a>`
+        );
+      } else {
+        var cardImg = $(
+          `<img class="card-img-top" src=${
+            response.trails[i].imgMedium
+          } alt=hiking-trail${i}a>`
+        );
+      }
       var cardBody = $("<div class=card-body>");
       var cardTitle = $("<h5 class=card-title>");
       cardTitle.text(response.trails[i].name);

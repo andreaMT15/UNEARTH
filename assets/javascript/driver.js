@@ -1,5 +1,5 @@
 // on submit
-$("#submit-btn").on("click", function() {
+$("#submit").on("click", function() {
   event.preventDefault();
 
   // removes 'invalid' class from any form elements
@@ -7,19 +7,19 @@ $("#submit-btn").on("click", function() {
   $(".invalid").each(function() {
     $(this).removeClass("invalid")
   });
-  
-
+  console.log(getAddress);
   // if basic search
   if (!flagAdvancedSearch) {
     // get address from User
     address = getAddress();
+    console.log(address);
     if (flagAddress) {
       //change this to a modal or form validation in the future
       return;
     } else { //valid search condition
 
       /********* Call API functions here ********/
-
+      toLatLng(address);
     }
   }
 
@@ -31,24 +31,24 @@ $("#submit-btn").on("click", function() {
       return;
     }
 
-    minTrailLength = getMinTrailLength();
+    hikingParameters.minTrailLength = getMinTrailLength();
     if (flagMinTrailLength) {
       return;
     }
 
-    maxTrailResults = getMaxTrailResults();
+    hikingParameters.maxTrailResults = getMaxTrailResults();
     if (flagMaxTrailResults) {
       return;
     }
 
-    maxDistance = getMaxDistance();
+    hikingParameters.maxDistance = getMaxDistance();
     if (flagMaxDistance) {
       return;
     }
 
-    transit = getTransit();
-
+    console.log(address);
+    console.log(hikingParameters);
     /***************** Call API here **********************/
-
+    toLatLng(address);
   }
 });

@@ -1,5 +1,5 @@
 /************************** User Input Validation Below ************************/
-const formAddress = $();
+const formAddress = $("#search-input");
 const formMaxTrailResults = $();
 const formMinTrailLength = $();
 const formMaxDistance = $();
