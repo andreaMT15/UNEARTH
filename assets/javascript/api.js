@@ -65,26 +65,61 @@ function fetchTrails(lat, long) {
       var cardText = $("<p class='card-text'>");
       cardText.text(
         `${response.trails[i].summary} Difficulty: ${
-          response.trails[i].difficculty
+          response.trails[i].difficulty
         }`
       );
+      var cardDropdown = $("<div class='dropdown'>");
+
+      var dropdownButton = $(
+        '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
+      );
+      dropdownButton.text("Search nearby!");
+
+      var dropdownMenu = $(
+        '<div class="dropdown-menu" aria-labelledby="dropdownMenu2">'
+      );
+      var busButton = $(
+        `<button class="dropdown-item" type="button" id="bus" data-lat=${
+          response.trails[i].latitude
+        } data-lng=${response.trails[i].longitude}>`
+      );
+
+      busButton.text("Bus");
+      var trainButton = $(
+        `<button class="dropdown-item" type="button" id="train" data-lat=${
+          response.trails[i].latitude
+        } data-lng=${response.trails[i].longitude}>`
+      );
+      trainButton.text("Train");
+      var airportButton = $(
+        `<button class="dropdown-item" type="button" id="airport" data-lat=${
+          response.trails[i].latitude
+        } data-lng=${response.trails[i].longitude}>`
+      );
+      airportButton.text("Airport");
+      var restaurantButton = $(
+        `<button class="dropdown-item" type="button" id="restaurant" data-lat=${
+          response.trails[i].latitude
+        } data-lng=${response.trails[i].longitude}>`
+      );
+      restaurantButton.text("Restaurant");
+      dropdownMenu.append(busButton);
+      dropdownMenu.append(trainButton);
+      dropdownMenu.append(airportButton);
+      dropdownMenu.append(restaurantButton);
+
+      cardDropdown.append(dropdownButton);
+      cardDropdown.append(dropdownMenu);
       newCard.append(cardImg);
       newCard.append(cardBody);
       newCard.append(cardTitle);
       newCard.append(cardText);
+      newCard.append(cardDropdown);
       $("#trails").append(newCard);
     }
-
-    //   <div class="card" "col-md-4">
-    //   <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-    //   <div class="card-body">
-    //     <h5 class="card-title">Card title</h5>
-    //     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    //     <a href="#" class="btn btn-primary">Go somewhere</a>
-    //   </div>
-    // </div>
   });
 }
+
 function googlePlace() {
   //required parameter
   var googleLatitude = "41.895481";

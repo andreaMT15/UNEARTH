@@ -2,7 +2,8 @@ $(document).ready(function() {
   $(".jumbotron").hide();
 });
 
-$("#submit").click(function() {
+$("#submit").on("click", function(event) {
+  event.preventDefault();
   $("body").css(
     "background-image",
     "url(assets/images/adventure-alps-cloudy-143577.jpg)"
