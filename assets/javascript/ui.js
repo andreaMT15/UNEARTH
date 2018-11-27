@@ -2,25 +2,20 @@
 const formAddress = $("#search-input");
 const formMaxTrailResults = $();
 const formMinTrailLength = $();
-const formMaxDistance = $();
+const formSearchRadius = $();
 const formKeyword = $();
 
 const defaultTransit = "car";
 const defaultMaxTrailResults = 10;
 const defaultMinTrailLength = 0;
 const defaultKeyword = "";
-const defaultMaxDistance = 30;
+const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
 const maxValueMaxTrailResults = 10;
 
 /** If false, the search is basic and only the user location/zip code is used */
 var flagAdvancedSearch = false;
-/** If a flag is true, the user input is invalid; do NOT proceed with API call */
-var flagAddress = true;
-var flagMaxTrailResults = true;
-var flagMinTrailLength = true;
-var flagMaxDistance = true;
 
 /********************************************************************************
  * User Input for destination name (string)
@@ -30,28 +25,18 @@ function invalidInput(field, message) {
   console.log(message);
 }
 
+
 /********************************************************************************
  * User Input for zip code
  ********************************************************************************/
 function getAddress() {
   var userIn = formAddress.val();
   //invalid input condition
-  if (userIn == undefined || userIn === "") {
+  if (userIn === undefined || userIn === "") {
     invalidInput(formAddress, "Invalid Input: Address");
-    flagAddress = true;
-    return "";
   } else {
-    flagAddress = false;
-    return userIn;
+    sessionStorage.setItem("address", userIn);
   }
-}
-
-/********************************************************************************
- * User Input for method of Transportation (for getting airport or train station)
- * Gets input from example select form element
- ********************************************************************************/
-function getTransit() {
-  userTransit = $("transit-input option:selected").val();
 }
 
 /********************************************************************************
@@ -59,23 +44,15 @@ function getTransit() {
  ********************************************************************************/
 function getMinTrailLength() {
   var userIn = formMinTrailLength.val();
-  if (userIn === "" || userIn == undefined) {
-    flagMinTrailLength = false;
-    console.log("No Input: Min Trail Length - set to default");
-    return defaultMinTrailLength;
+  if (userIn === "" || userIn === undefined) {
+    sessionStorage.setItem("minTrailLength", defaultMinTrailLength);
   }
   //invalid input condition
   userIn = parseInt(userIn);
   if (userIn < 0) {
-    invalidInput(
-      formmaxTrailResults,
-      "Invalid Input: Min Trail Length cannot be less than 0"
-    );
-    flagMinTrailLength = false;
-    return defaultMinTrailLength;
+    invalidInput(formmaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
   } else {
-    flagMinTrailLength = false;
-    return userIn;
+    sessionStorage.setItem("minTrailLength", userIn);
   }
 }
 
@@ -84,23 +61,17 @@ function getMinTrailLength() {
  ********************************************************************************/
 function getMaxTrailResults() {
   var userIn = formMaxTrailResults.val();
-  if (userIn === "" || userIn == undefined) {
-    flagMaxTrailResults = false;
-    console.log("No Input: Max Trail Results - set to default");
-    return defaultMaxTrailResults;
+  if (userIn === "" || userIn === undefined) {
+    sessionStorage("maxTrailResults", defaultMaxTrailResults);
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
     invalidInput(formMaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
-    flagMaxTrailResults = true;
-    return defaultMaxTrailResults;
   } else if (userIn > maxValueMaxTrailResults) {
     console.log("Warning: Max Trail Results exceeded limit, set to max of " + maxValueMaxTrailResults);
-    flagMaxTrailResults = false;
-    return maxValueMaxTrailResults;
+    sessionStorage.setItem("maxTrailResults", maxValueMaxTrailResults);
   } else {
-    flagMaxTrailResults = false;
-    return userIn;
+    sessionStorage.setItem("maxTrailResults", userIn);
   }
 }
 
@@ -108,24 +79,18 @@ function getMaxTrailResults() {
  * User Input for Max distance of results from input location
  ********************************************************************************/
 function getMaxDistance() {
-  var userIn = formMaxDistance.val();
-  if (userIn === "" || userIn == undefined) {
-    flagMaxDistance = false;
-    console.log("No Input: Max Distance - set to default");
-    return defaultDistance;
+  var userIn = formSearchRadius.val();
+  if (userIn === "" || userIn === undefined) {
+    sessionStorage.setItem("searchRadius", defaultSearchRadius);
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
-    invalidInput(formMaxDistance, "Invalid Input: Max Distance cannot be less than 0");
-    flagMaxDistance = true;
-    return defaultMaxDistance;
+    invalidInput(formSearchRadius, "Invalid Input: Max Distance cannot be less than 0");
   } else if (userIn === 0) {
     console.log("Warning: Max Distance set to default because input was 0");
-    flagMaxDistance = false;
-    return defaultMaxDistance;
+    sessionStorage.setItem("searchRadius",defaultSearchRadius);
   } else {
-    flagMaxDistance = false;
-    return userIn;
+    sessionStorage.setItem("searchRadius", userIn);
   }
 }
 
@@ -134,9 +99,9 @@ function getMaxDistance() {
  ********************************************************************************/
 function getKeyword() {
   var userIn = formKeyword.val();
-  if (userIn == undefined || userIn === "") {
-    return "";
+  if (userIn === undefined) {
+    sessionStorage.setItem("keyword", "");
   } else {
-    return userIn;
+    sessionStorage.setItem("keyword", userIn);
   }
 }
