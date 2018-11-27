@@ -65,7 +65,7 @@ function fetchTrails(lat, long) {
       var cardText = $("<p class='card-text'>");
       cardText.text(
         `${response.trails[i].summary} Difficulty: ${
-          response.trails[i].difficculty
+          response.trails[i].difficulty
         }`
       );
       newCard.append(cardImg);
