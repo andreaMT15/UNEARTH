@@ -1,54 +1,28 @@
-// on submit
-$("#submit").on("click", function() {
-  event.preventDefault();
+$(document).ready(function() {
+  $("#submit").on("click", function() {
+    event.preventDefault();
 
-  // removes 'invalid' class from any form elements
-  // ('invalid' will be added again if it input is invalid)
-  $(".invalid").each(function() {
-    $(this).removeClass("invalid")
+    // removes 'invalid' class from any form elements
+    // ('invalid' will be added again if it input is invalid)
+    $(".invalid").each(function() {
+      $(this).removeClass("invalid")
+    });
+
+    //address saved to session storage
+    getAddress();
+
+    // if advanced search
+    if (flagAdvancedSearch) {
+      hikingParameters.minTrailLength = sessionStorage.getItem("minTrailLength");
+      hikingParameters.maxTrailResults = sessionStorage.getItem("maxTrailResults");
+      hikingParameters.searchRadius = sessionStorage.getItem("searchRadius");
+    }
+    console.log(sessionStorage.getItem("address"));
+    if (sessionStorage.getItem("address") === undefined ||
+      sessionStorage.getItem("address") === "") {
+      console.log("Invalid Address")
+    } else {
+      window.open("results.html", "_self");
+    }
   });
-  console.log(getAddress);
-  // if basic search
-  if (!flagAdvancedSearch) {
-    // get address from User
-    address = getAddress();
-    console.log(address);
-    if (flagAddress) {
-      //change this to a modal or form validation in the future
-      return;
-    } else { //valid search condition
-
-      /********* Call API functions here ********/
-      toLatLng(address);
-    }
-  }
-
-  // if advanced search
-  else if (flagAdvancedSearch) {
-    // if any flags are true, cancel do not call API. Prompt user on form
-    address = getAddress();
-    if (flagAddress) {
-      return;
-    }
-
-    hikingParameters.minTrailLength = getMinTrailLength();
-    if (flagMinTrailLength) {
-      return;
-    }
-
-    hikingParameters.maxTrailResults = getMaxTrailResults();
-    if (flagMaxTrailResults) {
-      return;
-    }
-
-    hikingParameters.maxDistance = getMaxDistance();
-    if (flagMaxDistance) {
-      return;
-    }
-
-    console.log(address);
-    console.log(hikingParameters);
-    /***************** Call API here **********************/
-    toLatLng(address);
-  }
 });
