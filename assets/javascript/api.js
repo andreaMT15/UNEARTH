@@ -51,9 +51,9 @@ function fetchTrails(lat, long) {
     console.log(response);
 
     for (var i = 0; i < response.trails.length; i++) {
-      // var trailLat = response.trails[i].latitude;
-      // var trailLng = response.trails[i].longitude;
-      // changeToAddress(trailLat, trailLng);
+      var trailLat = response.trails[i].latitude;
+      var trailLng = response.trails[i].longitude;
+      changeToAddress(trailLat, trailLng);
 
       var newCard = $("<div class='card col-md-6'>");
       if (
@@ -75,12 +75,12 @@ function fetchTrails(lat, long) {
       var cardBody = $("<div class=card-body>");
       var cardTitle = $("<h5 class=card-title>");
       cardTitle.text(response.trails[i].name);
-      var cardText = $("<p class='card-text'>");
-      cardText.text(
-        `${response.trails[i].summary} Difficulty: ${
+      var cardText = $(`<p class='card-text' id=text-${i}>`);
+      cardText.html(
+        `${response.trails[i].summary} <b>Difficulty:</b> ${
           response.trails[i].difficulty
-        } Length: ${response.trails[i].length} Miles
-        Stars: ${response.trails[i].length}`
+        }.  <b>Length:</b>  ${response.trails[i].length}  Miles. 
+        <b>Stars:</b> ${response.trails[i].stars}.  `
       );
       var cardDropdown = $("<div class='dropdown'>");
 
@@ -192,6 +192,8 @@ function googlePlace(lat, lng, type) {
 
 //for passing in and array with latitude, longitude. to be changed into an address
 
+var counter = 0;
+
 function changeToAddress(arg1, arg2) {
   var googleAddressURL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${arg1},${arg2}&key=${googleKey}`;
   $.ajax({
@@ -200,5 +202,9 @@ function changeToAddress(arg1, arg2) {
   }).then(function(response) {
     // console.log(response);
     console.log(response.results[0].formatted_address);
+    $(`#text-${counter}`).append(
+      `<b>Address:</b> ${response.results[0].formatted_address}`
+    );
+    counter++;
   });
 }
