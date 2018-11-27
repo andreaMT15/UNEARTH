@@ -22,5 +22,10 @@ body {
 
 .card-sm {
   position: relative;
-  top: 300px;
+  top: 150px;
+}
+
+.jumbotron {
+  position: relative;
+  top: 150px;
 }
