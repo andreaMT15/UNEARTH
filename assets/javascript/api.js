@@ -51,9 +51,9 @@ function fetchTrails(lat, long) {
     console.log(response);
 
     for (var i = 0; i < response.trails.length; i++) {
-      var trailLat = response.trails[i].latitude;
-      var trailLng = response.trails[i].longitude;
-      changeToAddress(trailLat, trailLng);
+      // var trailLat = response.trails[i].latitude;
+      // var trailLng = response.trails[i].longitude;
+      // changeToAddress(trailLat, trailLng);
 
       var newCard = $("<div class='card col-md-6'>");
       if (
@@ -100,19 +100,19 @@ function fetchTrails(lat, long) {
 
       busButton.text("Bus");
       var trainButton = $(
-        `<button class="dropdown-item" type="button" id="train-stop" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="train-stop" data-lat=${
           response.trails[i].latitude
         } data-lng=${response.trails[i].longitude}>`
       );
       trainButton.text("Train");
       var hostelButton = $(
-        `<button class="dropdown-item" type="button" id="hostel" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="hostel" data-lat=${
           response.trails[i].latitude
         } data-lng=${response.trails[i].longitude}>`
       );
       hostelButton.text("Hostel");
       var restaurantButton = $(
-        `<button class="dropdown-item" type="button" id="restaurant" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="restaurant" data-lat=${
           response.trails[i].latitude
         } data-lng=${response.trails[i].longitude}>`
       );
@@ -134,7 +134,7 @@ function fetchTrails(lat, long) {
   });
 }
 
-$(document).on("click", ".dropdown-item", function(event) {
+$(document).on("click", ".nearby", function(event) {
   var lat = $(this).attr("data-lat");
   var lng = $(this).attr("data-lng");
   var type = $(this).attr("id");
@@ -151,14 +151,42 @@ function googlePlace(lat, lng, type) {
     url: googlePlacesURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response.results.length);
+    console.log(response.results);
     if (response.results.length === 0 && placesInfo.radius <= 48000) {
       placesInfo.radius += 2000;
       // console.log(placesInfo.radius);
       googlePlace(lat, lng, type);
     }
+    $("#trails").empty();
 
-    // console.log(response);
+    for (var i = 0; i < response.results.length; i++) {
+      var newCard = $("<div class='card col-md-6'>");
+
+      var cardImg = $(
+        `<img class="card-img-top" src=
+            "assets/images/groot.jpg"
+          } alt=hiking-trail${i}a>`
+      );
+
+      var cardBody = $("<div class=card-body>");
+      var cardTitle = $("<h5 class=card-title>");
+      cardTitle.text(response.results[i].name);
+      var cardText = $("<p class='card-text'>");
+      cardText.text(
+        `type of place: ${response.results[i].types[0]}, ${
+          response.results[i].types[1]
+        }, rating: ${response.results[i].rating} `
+      );
+
+      newCard.append(cardImg);
+      newCard.append(cardBody);
+      newCard.append(cardTitle);
+      newCard.append(cardText);
+
+      $("#trails").append(newCard);
+    }
+
+    console.log(response);
   });
 }
 
