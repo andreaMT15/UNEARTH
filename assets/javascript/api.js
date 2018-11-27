@@ -52,7 +52,10 @@ function fetchTrails(lat, long) {
     console.log(response);
     for (var i = 0; i < response.trails.length; i++) {
       var newCard = $("<div class='card col-md-6'>");
-      if (response.trails[i].imgMedium === "" || response.trails[i].imgMedium == undefined) {
+      if (
+        response.trails[i].imgMedium === "" ||
+        response.trails[i].imgMedium == undefined
+      ) {
         var cardImg = $(
           `<img class="card-img-top" src=
             "assets/images/groot.jpg"
@@ -72,7 +75,8 @@ function fetchTrails(lat, long) {
       cardText.text(
         `${response.trails[i].summary} Difficulty: ${
           response.trails[i].difficulty
-        }`
+        } Length:${response.trails[i].length} Miles
+        Stars:${response.trails[i].length}`
       );
       var cardDropdown = $("<div class='dropdown'>");
 
@@ -125,6 +129,14 @@ function fetchTrails(lat, long) {
     }
   });
 }
+$(document).on("click", ".dropdown-item", function(event) {
+  var lat = $(this).attr("data-lat");
+  var lng = $(this).attr("data-lng");
+  var keyword = $(this).attr("id");
+  console.log(lat);
+  console.log(lng);
+  console.log(keyword);
+});
 
 function googlePlace() {
   //required parameter
