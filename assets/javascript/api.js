@@ -1,8 +1,6 @@
 //required parameter for hiking trail api
 // var latLng = [];
-
 //address for grabing the latitude and longitude for the hiking trail
-var address = "";
 
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
 //funciton for passing in address returns array latitude, longitude.

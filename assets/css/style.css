@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  color: white;
 }
 
 .form-control-borderless {
@@ -30,6 +31,7 @@ body {
   top: 150px;
 }
 
+<<<<<<< HEAD
 footer { 
 
 
@@ -38,3 +40,16 @@ footer {
 
 
 }
+=======
+h1,
+h2 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+i {
+  color: black;
+  height: 5px;
+  width: 5px;
+}
+>>>>>>> 2204d0de236876254d4c101fa241683d5fbc9131
