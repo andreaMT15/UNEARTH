@@ -18,7 +18,7 @@
   </head>
   <body>
     <!-- This is the zip code search -->
-    <div class="container">
+    <div class="container" id="search">
       <br />
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
@@ -40,7 +40,11 @@
               </div>
               <!-- end of col -->
               <div class="col-auto">
-                <button class="btn btn-lg btn-success" type="submit">
+                <button
+                  class="btn btn-lg btn-success"
+                  type="submit"
+                  id="submit"
+                >
                   Search
                 </button>
               </div>
@@ -51,10 +55,31 @@
         <!-- end of col -->
       </div>
     </div>
+
+    <!-- Container to display the data on the screen -->
+    <div class="jumbotron">
+      <h1 class="display-4">Trails</h1>
+      <hr class="my-4" />
+      <div class="container"><div id="trails" class="row"></div></div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Background image change script -->
+    <script src="assets/javascript/background.js"></script>
+    <script src="assets/javascript/api.js"></script>
   </body>
 </html>
