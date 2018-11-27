@@ -105,3 +105,11 @@ function getKeyword() {
     sessionStorage.setItem("keyword", userIn);
   }
 }
+
+
+/********************************************************************************
+ * Functionality for 'advanced search' form
+ ********************************************************************************/
+$(document).ready(function() {
+
+});
