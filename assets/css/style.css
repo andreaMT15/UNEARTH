@@ -49,7 +49,7 @@ i {
   z-index: 1;
   width: 65%;
   /* height: 170px; */
-  height: 11rem;
+  height: 12rem;
   position: relative;
   top: 30px;
   padding: 20px;
@@ -57,12 +57,12 @@ i {
 
 #instructions {
   opacity: 100%;
-  z-index: 2;
+  z-index: 99;
   position: relative;
   bottom: 125px;
   width: 60%;
   /* height: 140px; */
-  height: 8.5rem;
+  height: fit-content;
   border: solid white 5px;
   padding: 10px;
 }
