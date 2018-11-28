@@ -21,7 +21,7 @@ for (var i = 0; i < numImages; i++) {
 
 // Generate a new random number
 ranNum = Math.floor(Math.random() * Math.floor(numImages));
-// If a random number is already saved, 
+// If a random number is already saved,
 if (storedNum !== undefined && storedNum !== "") {
   if (parseInt(storedNum) === ranNum) {
     var failSafe = 0;

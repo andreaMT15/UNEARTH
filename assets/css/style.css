@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/project-background-1.png"); 
+  background-image: url("../images/project-background-1.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -32,10 +32,9 @@ body {
   background: rgba(250, 250, 250, 0);
 }
 
-h1,
-h2 {
+h2,
+h3 {
   text-align: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 i {
@@ -49,7 +48,8 @@ i {
   opacity: 0.8;
   z-index: 1;
   width: 65%;
-  height: 150px;
+  /* height: 170px; */
+  height: 11rem;
   position: relative;
   top: 30px;
   padding: 20px;
@@ -59,10 +59,14 @@ i {
   opacity: 100%;
   z-index: 2;
   position: relative;
-  bottom: 110px;
+  bottom: 125px;
+  width: 60%;
+  /* height: 140px; */
+  height: 8.5rem;
   border: solid white 5px;
   padding: 10px;
 }
+
 p,
 h5 {
   color: black;
