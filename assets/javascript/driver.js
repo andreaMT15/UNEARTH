@@ -42,7 +42,6 @@ $(document).ready(function() {
   //user's last saved input is populated to search box for user convenience
   $("#search-input").text(sessionStorage.getItem("address"));
   
-  
   $("#search-btn").on("click", function() {
     event.preventDefault();
     search();
