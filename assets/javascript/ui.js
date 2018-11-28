@@ -1,4 +1,9 @@
-/************************** User Input Validation Below ************************/
+/********************************************************************************
+ * @author Steve Lucas
+ * @version 11/27/18
+ * Validates user input and saves data to session storage
+ *******************************************************************************/
+
 const formAddress = $("#search-input");
 const formMaxTrailResults = $("#max-results-input");
 const formMinTrailLength = $("#min-trail-length-input");
@@ -22,7 +27,6 @@ function invalidInput(field, message) {
   console.log(message);
 }
 
-
 /********************************************************************************
  * User Input for zip code
  ********************************************************************************/
@@ -31,6 +35,7 @@ function getAddress() {
   //invalid input condition
   if (userIn === undefined || userIn === "") {
     invalidInput(formAddress, "Invalid Input: Address");
+    sessionStorage.setItem("address", "");
   } else {
     sessionStorage.setItem("address", userIn);
   }
