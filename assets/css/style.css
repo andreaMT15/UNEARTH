@@ -63,16 +63,10 @@ i {
   bottom: 0px;
   top: 0px;
   width: 98%;
-  /* height: 140px; */
   height: fit-content;
   border: solid white 5px;
   padding: 10px;
 }
-
-/* p,
-h5 {
-  color: black;
-} */
 
 .card-img-top {
   margin-top: 10px;
