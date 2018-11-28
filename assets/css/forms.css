@@ -1,0 +1,22 @@
+#basic-search-btn {
+  vertical-align: baseline;
+  height: 100%;
+  margin: 0 auto;
+}
+.form-control {
+  width: 100%;
+  margin: auto;
+}
+form {
+  text-align: center;
+  width: 100%;
+
+}
+.form-group {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.row {
+  margin: 0 auto;
+}

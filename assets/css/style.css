@@ -1,3 +1,53 @@
 body {
-  background-color: blueviolet;
+  background-image: url(../images/adventure-canyon-creek-227677.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.card-sm {
+  position: relative;
+  top: 150px;
+}
+
+.jumbotron {
+  position: relative;
+  top: 100%;
+  background: rgba(250, 250, 250, 0);
+}
+
+h1 {
+  text-align: center;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+i {
+  color: black;
+  height: 5px;
+  width: 5px;
+}
+p,
+h5 {
+  color: black;
 }

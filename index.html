@@ -1,30 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/javascript/main.js"></script>
-  </head>
-  <body>
-    <!-- This is the zip code search -->
-    <div class="container">
-      Search Zip Code Below
-      <div class="row">
-        <input id="zip" name="zip" type="number" />
-        <button type="button" id="search-btn">Search</button>
-      </div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/forms.css">
+</head>
+
+<body>
+  <!-- Nav Bar Here -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Groot Tree</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Trails
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Advanced Search</a>
+          </div>
+      </ul>
     </div>
-  </body>
+  </nav>
+  <!-- This is the zip code search -->
+  <div class="container" id="search">
+
+    <div>
+      <br>
+      <h1>Hey groot lovers!</h1>
+      <h2>
+        Search a zip code below to find the hiking trails closest to you along
+        with transit information and the closest places to eat.
+      </h2>
+    </div> <!-- end div of welcome text -->
+
+    <!-- form container -->
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-8 col-sm-10">
+        <!-- row containing first form containing basic search bar and button -->
+        <div class="row justify-content-center">
+
+          <form>
+            <!-- address search textbox -->
+            <div class="form-group">
+              <input class="form-control" id="search-input" type="text" placeholder="Address or Zip Code">
+            </div>
+            <!-- end basic address search form -->
+            <div id="adv-search-form">
+              <!-- advanced search form (hidden by default) -->
+              <div class="form-group">
+                <input class="form-control" id="keyword-input" type="text" placeholder="Keyword">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="search-radius-input" type="text" placeholder="Search Radius">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="min-trail-length-input" type="text" placeholder="Minimum Trail Length">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="max-results-input" type="text" placeholder="Max of Results to Show">
+              </div>
+            </div> <!-- end advanced search form -->
+
+            <!-- form search button (with dropdown) -->
+            <div class="form-group">
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button id="search-btn" type="button" class="btn btn-secondary">Search</button>
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <button id="adv-search-drop" class="dropdown-item" >Advanced Search</button>
+                  </div> <!-- end dropdown menu items-->
+                </div> <!-- end inner (dropdown arrow) button -->
+              </div> <!-- end button container-->
+            </div> <!-- end button form group-->
+
+          </form> <!-- end of advanced search form -->
+        </div> <!-- end row containing advanced search form-->
+      </div> <!-- end col containing ALL forms -->
+
+
+    </div> <!-- end row containing ALL forms -->
+
+
+  </div> <!-- end container id="search" -->
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- Background image change script -->
+  <script src="assets/javascript/ui.js"></script>
+  <script src="assets/javascript/api.js"></script>
+  <script src="assets/javascript/driver.js"></script>
+
+
+
+</body>
+
 </html>
