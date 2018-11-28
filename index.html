@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/forms.css" />
-</head>
+  <body>
+    <!-- Nav Bar Here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo1.png" width="70" height="70" alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
 
-<body>
-  <!-- Nav Bar Here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Groot Tree</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Trails
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Advanced Search</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- This is the zip code search -->
-  <div class="container" id="search">
-    <div class="row justify-content-center">
-      <!-- This is the green header box -->
-      <div class="container" id="heading-box">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Trails
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Advanced Search</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- This is the zip code search -->
+    <div class="container" id="search">
+      <div class="row justify-content-center">
+        <!-- This is the green header box -->
+        <div class="container" id="heading-box"></div>
         <div class="row" id="instructions">
           <div class="col-12">
             <h2>Hey groot lovers!</h2>
@@ -50,8 +57,9 @@
           </div>
         </div>
       </div>
-      <!-- This is the end of the green header box -->
-
+    </div> <!-- end row -->
+    <!-- This is the end of the green header box -->
+    <div class="row justify-content-center">
       <div class="col-lg-7 col-md-8 col-sm-10">
         <!--
             row containing first form containing basic search bar and button
@@ -77,6 +85,7 @@
               <!-- end advanced search form -->
 
               <!-- form search button (with dropdown) -->
+
               <div class="form-group">
                 <input class="form-control" id="max-results-input" type="text" placeholder="Max of Results to Show (optional)" />
               </div>
