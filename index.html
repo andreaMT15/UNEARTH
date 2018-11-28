@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Eczar:400,500,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/wickedcss.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/forms.css" />
 </head>
@@ -15,46 +17,46 @@
 <body>
   <!-- Nav Bar Here -->
   <!-- Nav Bar Here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/images/logo1.png" width="70" height="70" alt="" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Trails
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Advanced Search</a>
-          </div>
-        </li>
-      </ul>
+  <nav class="navbar navbar-light bg-light">
+    <div class="row navbar-row">
+      <div class="col-4 navcol" id="img-col">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/logo1.png" width="70" height="70" alt="" /></a>
+      </div>
+      <div class="col-4 navcol">
+        <h1>UNEARTH</h1>
+      </div>
+      <div class="col-4 navcol">
+        <div id="navLinks">
+          <a class="nav-item" href="#">About Us</a>
+          <div class="nav-item vert-bar"> | </div>
+          <a class="nav-item active" href="index.html">Home</a>
+        </div>
+      </div>
     </div>
   </nav>
+  </div>
+
+ 
   <!-- This is the zip code search -->
+<div class="slideUp">
   <div class="container" id="search">
     <div class="row justify-content-center">
       <div class="col-lg-9 col-md-10 col-sm-12">
         <!-- This is the green header box -->
+      
         <div class="container" id="heading-box">
           <div class="row" id="instructions">
             <div class="col-12">
-              <h2>Hey groot lovers!</h2>
-              <h3>Search a zip below to find a hiking trail near you!</h3>
+              <h2 class="groot">Hey groot lovers!</h2>
+              <h3 class="groot">Search a zip below to find a hiking trail near you!</h3>
             </div>
           </div>
         </div>
-      </div>
-    </div> <!-- end row -->
+      </div> <!-- end row -->
+    </div>
+      
+
     <!-- This is the end of the green header box -->
     <div class="row justify-content-center">
       <div class="col-lg-7 col-md-8 col-sm-10">
@@ -116,6 +118,9 @@
     <!-- end outer row -->
   </div>
   <!-- end container id="search" -->
+  </div>
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
