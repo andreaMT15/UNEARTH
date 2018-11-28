@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  $(".jumbotron").hide();
-});
-
 $("#submit").on("click", function(event) {
   event.preventDefault();
   $("body").css(
