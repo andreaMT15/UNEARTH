@@ -9,7 +9,7 @@ body {
   color: white;
 }
 
-.form-control-borderless {
+/* .form-control-borderless {
   border: none;
 }
 
@@ -19,7 +19,7 @@ body {
   border: none;
   outline: none;
   box-shadow: none;
-}
+} */
 
 .card-sm {
   position: relative;
@@ -47,22 +47,23 @@ i {
   background-color: darkgreen;
   opacity: 0.8;
   z-index: 1;
-  width: 65%;
-  /* height: 170px; */
-  height: 11rem;
+  width: 100%;
+  height: fit-content;
   position: relative;
-  top: 30px;
+  top: 0px;
   padding: 20px;
+  margin: 2rem auto;
 }
 
 #instructions {
   opacity: 100%;
-  z-index: 2;
+  z-index: 99;
   position: relative;
-  bottom: 125px;
-  width: 60%;
+  bottom: 0px;
+  top: 0px;
+  width: 98%;
   /* height: 140px; */
-  height: 8.5rem;
+  height: fit-content;
   border: solid white 5px;
   padding: 10px;
 }
