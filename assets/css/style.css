@@ -124,7 +124,7 @@ h3 {
   height: 300px;
 }
 
-.card.col-md-5 {
+.card {
   margin-block-end: 15px;
   padding-bottom: 15px;
   background-color: rgb(169, 84, 27, 0.9);
