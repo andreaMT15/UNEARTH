@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Home</title>
+  <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -42,16 +42,15 @@
     <div class="row justify-content-center">
 
       <!-- This is the green header box -->
-      <div class="container" id="heading-box">
-        <div class="row" id="instructions">
-          <div class="col-12">
-            <h1>
-              Hey groot lovers!
-            </h1>
-            <h2>
-              Search a zip below to find a hiking trail near you!
-            </h2>
-          </div>
+      <div class="container" id="heading-box"></div>
+      <div class="row" id="instructions">
+        <div class="col-12">
+          <h1>
+            Hey groot lovers!
+          </h1>
+          <h2>
+            Search a zip below to find a hiking trail near you!
+          </h2>
         </div>
       </div>
       <!-- This is the end of the green header box -->
@@ -69,6 +68,9 @@
             <div id="adv-search-form">
               <!-- advanced search form (hidden by default) -->
               <div class="form-group">
+                <input class="form-control" id="keyword-input" type="text" placeholder="Keyword (optional)">
+              </div>
+              <div class="form-group">
                 <input class="form-control" id="search-radius-input" type="text" placeholder="Search Radius (optional)">
               </div>
               <div class="form-group">
@@ -77,21 +79,19 @@
               <div class="form-group">
                 <input class="form-control" id="max-results-input" type="text" placeholder="Max of Results to Show (optional)">
               </div>
-              <div class="form-group">
-                <input class="form-control" id="keyword-input" type="text" placeholder="Keyword (optional)">
-              </div>
             </div> <!-- end advanced search form -->
 
             <!-- form search button (with dropdown) -->
             <div class="btn-group">
-              <button id="search-btn" type="submit" class="btn btn-success">Search</button>
-              <button id="adv-search-drop" type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+              <button id="search-btn" type="submit" class="btn btn-light">Search</button>
+              <button id="adv-search-drop" type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" id="custom-dropdown">
                 <button id="adv-search-btn" type="button" class="dropdown-item">Advanced Search</button>
               </div>
+
             </div> <!-- end button form group-->
 
           </form> <!-- end of advanced search form -->
@@ -108,7 +108,6 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
 
   <script src="assets/javascript/ui.js"></script>
   <script src="assets/javascript/api.js"></script>
