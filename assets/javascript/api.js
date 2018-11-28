@@ -151,7 +151,7 @@ placesInfo = {
   // radius in meters  max meters: 50000
   radius: 2000
 };
-function googlePlace(lat, lng, type) {
+function googlePlace(lat, lng, type, img) {
   var googlePlacesURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},
     ${lng}&radius=${placesInfo.radius}&keyword=${type}&key=${googleKey}`;
   $.ajax({
@@ -164,33 +164,41 @@ function googlePlace(lat, lng, type) {
       // console.log(placesInfo.radius);
       googlePlace(lat, lng, type);
     }
+
     $("#trails").empty();
 
     for (var i = 0; i < response.results.length; i++) {
-      var newCard = $("<div class='card col-md-6'>");
-
-      var cardImg = $(
-        `<img class="card-img-top" src=
-            "assets/images/groot.jpg"
-          } alt=hiking-trail${i}a>`
-      );
+      var newCard = $("<div class='card col-md-5'>");
+      var spacing = $("<div class='col-md-2'></div>");
+      // var cardImg = $(
+      //   `<img class="card-img-top" src=
+      //       "assets/images/groot.jpg"
+      //     } alt=hiking-trail${i}a>`
+      // );
 
       var cardBody = $("<div class=card-body>");
       var cardTitle = $("<h5 class=card-title>");
       cardTitle.text(response.results[i].name);
-      var cardText = $("<p class='card-text'>");
-      cardText.text(
-        `type of place: ${response.results[i].types[0]}, ${
+      var cardText = $(`<p class='card-text'>`);
+      cardText.html(
+        `<b>type of place:</b> ${response.results[i].types[0]}, ${
           response.results[i].types[1]
-        }, rating: ${response.results[i].rating} `
+        }, <b>rating:</b> ${response.results[i].rating} <b>Address:</b> ${
+          response.results[i].vicinity
+        }`
       );
 
-      newCard.append(cardImg);
+      // newCard.append(cardImg);
       newCard.append(cardBody);
       newCard.append(cardTitle);
       newCard.append(cardText);
 
-      $("#trails").append(newCard);
+      if (i % 2 === 0) {
+        $("#trails").append(newCard);
+      } else {
+        $("#trails").append(spacing);
+        $("#trails").append(newCard);
+      }
     }
 
     console.log(response);
