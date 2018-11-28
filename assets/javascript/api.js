@@ -87,7 +87,7 @@ function fetchTrails(lat, long) {
       var cardDropdown = $("<div class='dropdown'>");
 
       var dropdownButton = $(
-        '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
+        '<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
       );
       dropdownButton.text("Search nearby!");
 
