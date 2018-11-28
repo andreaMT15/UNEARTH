@@ -1,3 +1,9 @@
+/********************************************************************************
+ * @author Steve Lucas
+ * @version 11/27/18
+ * Handles event listeners on HTML pages and drives all functionality
+ *******************************************************************************/
+
 //advanced search form hidden by default
 $("#adv-search-form").hide();
 

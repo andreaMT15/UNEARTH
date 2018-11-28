@@ -1,4 +1,9 @@
-/************************** User Input Validation Below ************************/
+/********************************************************************************
+ * @author Steve Lucas
+ * @version 11/27/18
+ * Validates user input and saves data to session storage
+ *******************************************************************************/
+
 const formAddress = $("#search-input");
 const formMaxTrailResults = $("#max-results-input");
 const formMinTrailLength = $("#min-trail-length-input");
