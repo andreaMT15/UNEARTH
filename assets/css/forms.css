@@ -1,0 +1,52 @@
+.form-control {
+  width: 100%;
+  margin: auto;
+}
+
+form {
+  text-align: center;
+  width: 100%;
+}
+
+.form-group {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+
+/* overrides the bootstrap styling so that the dropdown box
+ * is initialized at the top-right corner of the button */
+#custom-dropdown {
+  position: absolute;
+  will-change: transform;
+  top: 0px;
+  left: unset !important;
+  right: 0px !important;
+  transform: translate3d(0px, 40px, 0px) !important;
+  text-align: center !important;
+  min-width: 100%;
+  width: auto;
+}
+
+.dropdown-item {
+  padding: 0 .5rem;
+}
+
+.row {
+  margin: 0 auto;
+}
+
+.invalid {
+  border-color: red;
+  /*fallback background */
+  background-color: rgb(252, 179, 179);
+}
+
+@media only screen and (min-width: 1000px) {
+
+  #search-btn,
+  #adv-search-drop {
+    font-size: 1.2rem;
+  }
+}

@@ -1,11 +1,11 @@
 body {
-  background-image: url(../images/adventure-canyon-creek-227677.jpg);
+  background-image: url("../images/project-background-1.png"); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
+  height: auto;
   color: white;
 }
 
@@ -23,12 +23,13 @@ body {
 
 .card-sm {
   position: relative;
-  top: 150px;
+  top: 300px;
 }
 
 .jumbotron {
   position: relative;
-  top: 150px;
+  top: 100%;
+  background: rgba(250, 250, 250, 0);
 }
 
 <<<<<<< HEAD
@@ -52,4 +53,32 @@ i {
   height: 5px;
   width: 5px;
 }
+<<<<<<< HEAD
 >>>>>>> 2204d0de236876254d4c101fa241683d5fbc9131
+=======
+
+#heading-box {
+  background-color: darkgreen;
+  opacity: 0.8;
+  z-index: 1;
+  width: 65%;
+  height: 150px;
+  position: relative;
+  top: 30px;
+  padding: 20px;
+}
+
+#instructions {
+  opacity: 100%;
+  z-index: 2;
+  position: relative;
+  bottom: 110px;
+  width: 1100px;
+  border: solid white 5px;
+  padding: 10px;
+}
+p,
+h5 {
+  color: black;
+}
+>>>>>>> 252eef693baab79a7b7c733c4524c17f6a66e933

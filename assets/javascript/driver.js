@@ -1,28 +1,70 @@
-$(document).ready(function() {
-  $("#submit").on("click", function() {
-    event.preventDefault();
+/********************************************************************************
+ * @author Steve Lucas
+ * @version 11/27/18
+ * Handles event listeners on HTML pages and drives all functionality
+ *******************************************************************************/
 
-    // removes 'invalid' class from any form elements
-    // ('invalid' will be added again if it input is invalid)
-    $(".invalid").each(function() {
-      $(this).removeClass("invalid")
-    });
+//advanced search form hidden by default
+$("#adv-search-form").hide();
 
-    //address saved to session storage
-    getAddress();
+/** If false, the search is basic and only the user location/zip code is used */
+var flagAdvancedSearch = false;
 
+function search() {
+  event.preventDefault();
+
+  // removes 'invalid' class from any form elements
+  // ('invalid' will be added again if it input is invalid)
+  $(".invalid").each(function() {
+    $(this).removeClass("invalid")  
+  });
+
+  //address saved to session storage
+  getAddress();
+
+  console.log(sessionStorage.getItem("address"));
+  if (sessionStorage.getItem("address") === undefined ||
+    sessionStorage.getItem("address") === "") {
+    console.log("Invalid Address");
+  } else {
     // if advanced search
     if (flagAdvancedSearch) {
       hikingParameters.minTrailLength = sessionStorage.getItem("minTrailLength");
       hikingParameters.maxTrailResults = sessionStorage.getItem("maxTrailResults");
       hikingParameters.searchRadius = sessionStorage.getItem("searchRadius");
     }
-    console.log(sessionStorage.getItem("address"));
-    if (sessionStorage.getItem("address") === undefined ||
-      sessionStorage.getItem("address") === "") {
-      console.log("Invalid Address")
+    //otherwise, all parameters will remain at default values
+    window.open("results.html", "_self");
+  }
+}
+
+$(document).ready(function() {
+  //user's last saved input is populated to search box for user convenience
+  $("#search-input").text(sessionStorage.getItem("address"));
+  
+  
+  $("#search-btn").on("click", function() {
+    event.preventDefault();
+    search();
+  });
+
+
+  /**
+   * on click, displays the advanced search form if it is hidden,
+   * and hides it if it is showing.
+   */
+  $("#adv-search-btn").on("click", function() {
+    event.preventDefault();
+    if (!flagAdvancedSearch) {
+      flagAdvancedSearch = true;
+      $("#adv-search-form").show();
+      $("#adv-search-btn").text("Basic Search");
+
     } else {
-      window.open("results.html", "_self");
+      flagAdvancedSearch = false;
+      $("#adv-search-form").hide();
+      $("#adv-search-btn").text("Advanced Search");
     }
   });
+  console.log("Add button functionality to revert to basic search");
 });
