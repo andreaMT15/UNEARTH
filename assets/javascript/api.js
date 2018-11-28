@@ -55,7 +55,9 @@ function fetchTrails(lat, long) {
       var trailLng = response.trails[i].longitude;
       changeToAddress(trailLat, trailLng);
 
-      var newCard = $("<div class='card col-md-6'>");
+      var spacing = $("<div class='col-md-2'></div>");
+
+      var newCard = $("<div class='card col-md-5'>");
       if (
         response.trails[i].imgMedium === "" ||
         response.trails[i].imgMedium == undefined
@@ -129,7 +131,12 @@ function fetchTrails(lat, long) {
       newCard.append(cardTitle);
       newCard.append(cardText);
       newCard.append(cardDropdown);
-      $("#trails").append(newCard);
+      if (i % 2 === 0) {
+        $("#trails").append(newCard);
+      } else {
+        $("#trails").append(spacing);
+        $("#trails").append(newCard);
+      }
     }
   });
 }
