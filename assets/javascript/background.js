@@ -1,3 +1,6 @@
+$(document).ready(function() {
+  $(".jumbotron").hide();
+});
 
 $("#submit").on("click", function(event) {
   event.preventDefault();
@@ -6,5 +9,4 @@ $("#submit").on("click", function(event) {
     "url(assets/images/adventure-alps-cloudy-143577.jpg)"
   );
   $("#search").hide();
-
 });
