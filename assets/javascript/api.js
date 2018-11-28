@@ -34,7 +34,7 @@ var hikingParameters = {
   //minium length default 0 mile
   minLength: "1"
 };
-
+var trailsArray = [];
 function fetchTrails(lat, long) {
   // the required parameters for the hiking api is latitude, longitude, and key
   var hikingURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&minLength=${
@@ -48,13 +48,15 @@ function fetchTrails(lat, long) {
     url: hikingURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
 
     for (var i = 0; i < response.trails.length; i++) {
       var trailLat = response.trails[i].latitude;
       var trailLng = response.trails[i].longitude;
       changeToAddress(trailLat, trailLng);
-
+      var trailObject = {};
+      trailObject = response.trails[i];
+      trailsArray.push(trailObject);
       var spacing = $("<div class='col-md-2'></div>");
 
       var newCard = $("<div class='card col-md-5'>");
@@ -79,7 +81,7 @@ function fetchTrails(lat, long) {
       cardTitle.text(response.trails[i].name);
       var cardText = $(`<p class='card-text' id=text-${i}>`);
       cardText.html(
-        `${response.trails[i].summary} <b>Difficulty:</b> ${
+        `${response.trails[i].summary} <br> <b>Difficulty:</b> ${
           response.trails[i].difficulty
         }.  <b>Length:</b>  ${response.trails[i].length}  Miles. 
         <b>Stars:</b> ${response.trails[i].stars}.  `
@@ -95,28 +97,28 @@ function fetchTrails(lat, long) {
         '<div class="dropdown-menu" aria-labelledby="dropdownMenu2">'
       );
       var busButton = $(
-        `<button class="dropdown-item" type="button" id="bus" data-lat=${
+        `<button class="dropdown-item" type="button" id="bus" data-lat='${
           response.trails[i].latitude
-        } data-lng=${response.trails[i].longitude}>`
+        }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
 
       busButton.text("Bus");
       var trainButton = $(
-        `<button class="dropdown-item nearby" type="button" id="train-stop" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="train-stop" data-lat='${
           response.trails[i].latitude
-        } data-lng=${response.trails[i].longitude}>`
+        }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
       trainButton.text("Train");
       var hostelButton = $(
-        `<button class="dropdown-item nearby" type="button" id="hostel" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="hostel" data-lat='${
           response.trails[i].latitude
-        } data-lng=${response.trails[i].longitude}>`
+        }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
       hostelButton.text("Hostel");
       var restaurantButton = $(
-        `<button class="dropdown-item nearby" type="button" id="restaurant" data-lat=${
+        `<button class="dropdown-item nearby" type="button" id="restaurant" data-lat='${
           response.trails[i].latitude
-        } data-lng=${response.trails[i].longitude}>`
+        }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
       restaurantButton.text("Restaurant");
       dropdownMenu.append(busButton);
@@ -145,27 +147,64 @@ $(document).on("click", ".nearby", function(event) {
   var lat = $(this).attr("data-lat");
   var lng = $(this).attr("data-lng");
   var type = $(this).attr("id");
-  googlePlace(lat, lng, type);
+  var trailNum = $(this).attr("data-trail");
+  googlePlace(lat, lng, type, trailNum);
 });
 placesInfo = {
   // radius in meters  max meters: 50000
   radius: 2000
 };
-function googlePlace(lat, lng, type, img) {
+function googlePlace(lat, lng, type, trailNum) {
   var googlePlacesURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},
     ${lng}&radius=${placesInfo.radius}&keyword=${type}&key=${googleKey}`;
   $.ajax({
     url: googlePlacesURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response.results);
+    // console.log(response.results);
     if (response.results.length === 0 && placesInfo.radius <= 48000) {
       placesInfo.radius += 2000;
       // console.log(placesInfo.radius);
-      googlePlace(lat, lng, type);
+      googlePlace(lat, lng, type, trailNum);
     }
-
+    console.log(trailsArray);
+    console.log(trailNum);
     $("#trails").empty();
+    var spacing = $("<div class='col-md-3'>");
+    var newCard = $("<div class='card col-md-6'>");
+    if (
+      trailsArray[trailNum].imgMedium === "" ||
+      trailsArray[trailNum].imgMedium == undefined
+    ) {
+      var cardImg = $(
+        `<img class="card-img-top" src=
+          "assets/images/groot.jpg"
+        } alt=hiking-trail${i}a>`
+      );
+    } else {
+      var cardImg = $(
+        `<img class="card-img-top" src=${
+          trailsArray[trailNum].imgMedium
+        } alt=hiking-trail${i}a>`
+      );
+    }
+    var cardBody = $("<div class=card-body>");
+    var cardTitle = $("<h5 class=card-title>");
+    cardTitle.text(trailsArray[trailNum].name);
+    var cardText = $(`<p class='card-text' id=text-${i}>`);
+    cardText.html(
+      `${trailsArray[trailNum].summary} <br> <b>Difficulty:</b> ${
+        trailsArray[trailNum].difficulty
+      }.  <b>Length:</b>  ${trailsArray[trailNum].length}  Miles. 
+      <b>Stars:</b> ${trailsArray[trailNum].stars}.  `
+    );
+
+    newCard.append(cardImg);
+    newCard.append(cardBody);
+    newCard.append(cardTitle);
+    newCard.append(cardText);
+    $("#trails").append(spacing);
+    $("#trails").append(newCard);
 
     for (var i = 0; i < response.results.length; i++) {
       var newCard = $("<div class='card col-md-5'>");
@@ -201,7 +240,7 @@ function googlePlace(lat, lng, type, img) {
       }
     }
 
-    console.log(response);
+    // console.log(response);
   });
 }
 
@@ -216,7 +255,7 @@ function changeToAddress(arg1, arg2) {
     method: "GET"
   }).then(function(response) {
     // console.log(response);
-    console.log(response.results[0].formatted_address);
+    // console.log(response.results[0].formatted_address);
     $(`#text-${counter}`).append(
       `<b>Address:</b> ${response.results[0].formatted_address}`
     );
