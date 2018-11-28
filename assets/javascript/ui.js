@@ -22,7 +22,6 @@ function invalidInput(field, message) {
   console.log(message);
 }
 
-
 /********************************************************************************
  * User Input for zip code
  ********************************************************************************/
@@ -31,6 +30,7 @@ function getAddress() {
   //invalid input condition
   if (userIn === undefined || userIn === "") {
     invalidInput(formAddress, "Invalid Input: Address");
+    sessionStorage.setItem("address", "");
   } else {
     sessionStorage.setItem("address", userIn);
   }
