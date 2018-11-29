@@ -8,12 +8,10 @@ const formAddress = $("#search-input");
 const formMaxTrailResults = $("#max-results-input");
 const formMinTrailLength = $("#min-trail-length-input");
 const formSearchRadius = $("#search-radius-input");
-const formKeyword = $("#keyword-input");
 
 const defaultTransit = "car";
 const defaultMaxTrailResults = 10;
 const defaultMinTrailLength = 0;
-const defaultKeyword = "";
 const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
@@ -64,7 +62,7 @@ function getMinTrailLength() {
 function getMaxTrailResults() {
   var userIn = formMaxTrailResults.val();
   if (userIn === "" || userIn === undefined) {
-    sessionStorage("maxTrailResults", defaultMaxTrailResults);
+    sessionStorage.setItem("maxTrailResults", defaultMaxTrailResults);
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
@@ -95,19 +93,6 @@ function getMaxDistance() {
     sessionStorage.setItem("searchRadius", userIn);
   }
 }
-
-/********************************************************************************
- * User Input for Max distance of results from input location
- ********************************************************************************/
-function getKeyword() {
-  var userIn = formKeyword.val();
-  if (userIn === undefined) {
-    sessionStorage.setItem("keyword", "");
-  } else {
-    sessionStorage.setItem("keyword", userIn);
-  }
-}
-
 
 /********************************************************************************
  * Functionality for 'advanced search' form
