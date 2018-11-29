@@ -1,3 +1,6 @@
+html {
+  min-height: 100%;
+}
 body {
   background-image: url("../images/project-background-1.jpg");
   background-size: cover;
@@ -5,20 +8,63 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   width: 100%;
-  height: auto;
+  display: flex; 
+  flex-direction: column;
   color: white;
   z-index: 1;
+
 }
+
+html, body {
+
+  height: 100vh;
+
+
+}
+
+.wrapper { 
+
+  flex: 1 0 auto; 
+
+}
+
+.index-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+/* .form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+} */
 
 .groot {
   font-family: "Eczar", serif;
   font-weight: 500;
 }
 
+
+.groot,
 .card-title {
   font-family: "Eczar", serif;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
+.groot {
+  font-weight: 500;
+}
+
 
 .card-sm {
   position: relative;
@@ -121,6 +167,21 @@ a:hover {
   color: white;
 }
 
+
+
+footer {
+
+  flex-shrink: 0;
+
+}
+
+.card-title h5, .card-text p, .footer-copyright  {
+
+  color: #f8f9fa !important;
+
+}
+
+
 #ulogo {
   height: 70px;
   width: 70px;
@@ -132,6 +193,23 @@ a:hover {
   height: 70px;
   width: 70px;
 }
+
+/* footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  justify-content: center;
+  text-align: center;
+}
+.footer-item {
+  display: inline-block;
+  line-height: 2em;
+  color: rgb(122, 62, 22);
+  font-size: 1.1em;
+} */
+
 
 @media only screen and (max-width: 1000px) {
   .navbar-row {
