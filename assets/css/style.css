@@ -5,10 +5,33 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   width: 100%;
-  height: auto;
+  display: flex; 
+  flex-direction: column;
   color: white;
   z-index: 1;
+
 }
+
+html, body {
+
+  height: 100vh;
+
+
+}
+
+.wrapper { 
+
+  flex: 1 0 auto; 
+
+}
+
+.index-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 /* .form-control-borderless {
   border: none;
@@ -132,6 +155,21 @@ a:hover {
   background-color: rgb(169, 84, 27, 0.9);
   color: white;
 }
+
+
+footer {
+
+  flex-shrink: 0;
+
+}
+
+.card-title h5, .card-text p, .footer-copyright  {
+
+  color: #f8f9fa !important;
+
+}
+
+
 
 @media only screen and (max-width: 1000px) {
   .navbar-row {
