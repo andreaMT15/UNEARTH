@@ -208,7 +208,7 @@ function googlePlace(lat, lng, type, trailNum) {
   ) {
     var cardImg = $(
       `<img class="card-img-top" src=
-        "assets/images/groot.jpg"
+        "assets/images/hiking1.jpg"
       } alt=hiking-trail${trailNum}a>`
     );
   } else {
