@@ -22,7 +22,6 @@ const maxValueMaxTrailResults = 30;
  ********************************************************************************/
 function invalidInput(field, message) {
   field.addClass("invalid");
-  console.log(message);
 }
 
 /********************************************************************************
@@ -105,8 +104,3 @@ function getSearchRadius() {
     sessionStorage.setItem("searchRadius", userIn);
   }
 }
-
-/********************************************************************************
- * Functionality for 'advanced search' form
- ********************************************************************************/
-$(document).ready(function() {});
