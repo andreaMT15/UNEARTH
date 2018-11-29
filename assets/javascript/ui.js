@@ -85,9 +85,9 @@ function getMaxTrailResults() {
 }
 
 /********************************************************************************
- * User Input for Max distance of results from input location
+ * User Input for Search Radius from input location
  ********************************************************************************/
-function getMaxDistance() {
+function getSearchRadius() {
   var userIn = formSearchRadius.val();
   if (userIn === "" || userIn === undefined) {
     sessionStorage.setItem("searchRadius", defaultSearchRadius);

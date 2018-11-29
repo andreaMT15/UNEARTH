@@ -10,18 +10,6 @@ body {
   z-index: 1;
 }
 
-/* .form-control-borderless {
-  border: none;
-}
-
-.form-control-borderless:hover,
-.form-control-borderless:active,
-.form-control-borderless:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-} */
-
 .groot {
   font-family: "Eczar", serif;
   font-weight: 500;
@@ -80,9 +68,9 @@ body {
 h1 {
   color: rgb(122, 62, 22);
   line-height: 1.5em;
-  font-family: "Rakkas", cursive;
-  font-weight: 700;
-  letter-spacing: 0.6rem;
+  font-family: "Eczar", serif;
+  font-weight: 650;
+  letter-spacing: 0.8rem;
   margin: 0;
   margin-top: 0.4em;
 }
@@ -133,6 +121,18 @@ a:hover {
   color: white;
 }
 
+#ulogo {
+  height: 70px;
+  width: 70px;
+  margin-left: 5px;
+}
+
+#ulogo2 {
+  margin-left: 20px;
+  height: 70px;
+  width: 70px;
+}
+
 @media only screen and (max-width: 1000px) {
   .navbar-row {
     font-size: 1em;
@@ -171,9 +171,15 @@ a:hover {
   .nav-item {
     font-size: 1.1em;
   }
-  .navbar-brand img {
+
+  /* .navbar-brand img {
     height: 50px;
     width: 50px;
+  } */
+  #ulogo {
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
   }
   .navbar {
     padding: 0 1em;
