@@ -29,9 +29,9 @@ function search() {
   } else {
     // if advanced search
     if (flagAdvancedSearch) {
-      hikingParameters.minTrailLength = sessionStorage.getItem("minTrailLength");
-      hikingParameters.maxTrailResults = sessionStorage.getItem("maxTrailResults");
-      hikingParameters.searchRadius = sessionStorage.getItem("searchRadius");
+      getMinTrailLength();
+      getMaxTrailResults();
+      getMaxDistance();
     }
     //otherwise, all parameters will remain at default values
     window.open("results.html", "_self");
@@ -66,5 +66,4 @@ $(document).ready(function() {
       $("#adv-search-btn").text("Advanced Search");
     }
   });
-  console.log("Add button functionality to revert to basic search");
 });
