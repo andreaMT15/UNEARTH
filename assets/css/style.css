@@ -1,3 +1,6 @@
+html {
+  min-height: 100%;
+}
 body {
   background-image: url("../images/project-background-1.jpg");
   background-size: cover;
@@ -33,6 +36,7 @@ html, body {
 
 
 
+
 /* .form-control-borderless {
   border: none;
 }
@@ -50,10 +54,17 @@ html, body {
   font-weight: 500;
 }
 
+
+.groot,
 .card-title {
   font-family: "Eczar", serif;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
+.groot {
+  font-weight: 500;
+}
+
 
 .card-sm {
   position: relative;
@@ -103,9 +114,9 @@ html, body {
 h1 {
   color: rgb(122, 62, 22);
   line-height: 1.5em;
-  font-family: "Rakkas", cursive;
-  font-weight: 700;
-  letter-spacing: 0.6rem;
+  font-family: "Eczar", serif;
+  font-weight: 650;
+  letter-spacing: 0.8rem;
   margin: 0;
   margin-top: 0.4em;
 }
@@ -157,6 +168,7 @@ a:hover {
 }
 
 
+
 footer {
 
   flex-shrink: 0;
@@ -169,6 +181,34 @@ footer {
 
 }
 
+
+/* #ulogo {
+  height: 70px;
+  width: 70px;
+  margin-left: 5px;
+}
+
+#ulogo2 {
+  margin-left: 20px;
+  height: 70px;
+  width: 70px;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  justify-content: center;
+  text-align: center;
+}
+.footer-item {
+  display: inline-block;
+  line-height: 2em;
+  color: rgb(122, 62, 22);
+  font-size: 1.1em;
+} */
 
 
 @media only screen and (max-width: 1000px) {
@@ -209,9 +249,15 @@ footer {
   .nav-item {
     font-size: 1.1em;
   }
-  .navbar-brand img {
+
+  /* .navbar-brand img {
     height: 50px;
     width: 50px;
+  } */
+  #ulogo {
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
   }
   .navbar {
     padding: 0 1em;

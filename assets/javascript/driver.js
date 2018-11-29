@@ -31,7 +31,7 @@ function search() {
     if (flagAdvancedSearch) {
       getMinTrailLength();
       getMaxTrailResults();
-      getSearchDistance();
+      getSearchRadius();
     }
     //otherwise, all parameters will remain at default values
     window.open("results.html", "_self");
