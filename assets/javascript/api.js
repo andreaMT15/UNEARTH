@@ -262,9 +262,9 @@ function googlePlace(lat, lng, type, trailNum) {
       cardTitle.text(response.results[j].name);
       var cardText = $(`<p class='card-text' id ='places-${j}' >`);
       cardText.html(
-        `<b>rating:</b> ${response.results[j].rating} <br> <b>Address</b> ${
+        `<b>Rating:</b> ${response.results[j].rating} <br> <b>Address</b> ${
           response.results[j].vicinity
-        } <br> <b>type of place:</b>  `
+        } <br> <b>Type of place:</b>  `
       );
       for (var k = 0; k < response.results[j].types.length; k++) {
         if (response.results[j].types[k] === "point_of_interest") {
