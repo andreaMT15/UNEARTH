@@ -15,7 +15,7 @@ const defaultMinTrailLength = 0;
 const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
-const maxValueMaxTrailResults = 10;
+const maxValueMaxTrailResults = 30;
 
 /********************************************************************************
  * User Input for destination name (string)
@@ -50,7 +50,10 @@ function getMinTrailLength() {
   //invalid input condition
   userIn = parseInt(userIn);
   if (userIn < 0) {
-    invalidInput(formmaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
+    invalidInput(
+      formmaxTrailResults,
+      "Invalid Input: Min Trail Length cannot be less than 0"
+    );
   } else {
     sessionStorage.setItem("minTrailLength", userIn);
   }
@@ -66,9 +69,15 @@ function getMaxTrailResults() {
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
-    invalidInput(formMaxTrailResults, "Invalid Input: Min Trail Length cannot be less than 0");
+    invalidInput(
+      formMaxTrailResults,
+      "Invalid Input: Min Trail Length cannot be less than 0"
+    );
   } else if (userIn > maxValueMaxTrailResults) {
-    console.log("Warning: Max Trail Results exceeded limit, set to max of " + maxValueMaxTrailResults);
+    console.log(
+      "Warning: Max Trail Results exceeded limit, set to max of " +
+        maxValueMaxTrailResults
+    );
     sessionStorage.setItem("maxTrailResults", maxValueMaxTrailResults);
   } else {
     sessionStorage.setItem("maxTrailResults", userIn);
@@ -85,10 +94,13 @@ function getSearchRadius() {
   }
   userIn = parseInt(userIn);
   if (userIn < 0) {
-    invalidInput(formSearchRadius, "Invalid Input: Max Distance cannot be less than 0");
+    invalidInput(
+      formSearchRadius,
+      "Invalid Input: Max Distance cannot be less than 0"
+    );
   } else if (userIn === 0) {
     console.log("Warning: Max Distance set to default because input was 0");
-    sessionStorage.setItem("searchRadius",defaultSearchRadius);
+    sessionStorage.setItem("searchRadius", defaultSearchRadius);
   } else {
     sessionStorage.setItem("searchRadius", userIn);
   }
@@ -97,6 +109,4 @@ function getSearchRadius() {
 /********************************************************************************
  * Functionality for 'advanced search' form
  ********************************************************************************/
-$(document).ready(function() {
-
-});
+$(document).ready(function() {});

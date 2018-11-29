@@ -27,24 +27,29 @@ function toLatLng(address) {
 var hikingParameters = {
   //required key parameter
   hikingKey: "200389890-8a7115b52b480cbc8bf26a0516b28e9d",
-  // max distance in miles default 30, max 200
-  maxDistance: "30",
+  // search radius in miles default 30, max 200
+  searchRadius: "30",
   //default 10 trails up to 500 trails
   maxTrailResults: "10",
   //default quality can use distance
   sort: "",
   //minium length default 0 mile
-  minLength: "1"
+  minTrailLength: "1"
 };
 //an array for storing the objects from the hiking project api
 var trailsArray = [];
 function fetchTrails(lat, long) {
+  hikingParameters.minTrailLength = sessionStorage.getItem("minTrailLength");
+  hikingParameters.maxTrailResults = sessionStorage.getItem("maxTrailResults");
+  hikingParameters.searchRadius = sessionStorage.getItem("searchRadius");
+  console.log(hikingParameters.maxTrailResults);
+  console.log(hikingParameters.searchRadius);
   // the required parameters for the hiking api is latitude, longitude, and key
   var hikingURL = `https://www.hikingproject.com/data/get-trails?lat=${lat}&minLength=${
-    hikingParameters.minLength
+    hikingParameters.minTrailLength
   }&sort=${hikingParameters.sort}&lon=${long}&  maxDistance=${
-    hikingParameters.maxDistance
-  }&maxTrailResults=${hikingParameters.maxTrailResults}&key=${
+    hikingParameters.searchRadius
+  }&maxResults=${hikingParameters.maxTrailResults}&key=${
     hikingParameters.hikingKey
   }`;
   $.ajax({
