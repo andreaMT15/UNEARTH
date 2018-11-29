@@ -1,7 +1,11 @@
 body {
   background-image: url("../images/groot.jpg");
 }
-
+#ulogo {
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
+}
 .Member {
   font-size: 25pt;
   font-family: "Rakkas", cursive;
