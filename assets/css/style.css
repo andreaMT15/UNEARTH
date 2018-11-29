@@ -225,6 +225,13 @@ footer {
     margin: 0 0.5em;
     margin-top: 1.5em;
   }
+  .card-img-top {
+    height: 220px;
+  }
+  .card-body {
+    height: 0px;
+    padding: 0.5em 0;
+  }
 }
 
 @media only screen and (max-width: 780px) {
@@ -238,6 +245,10 @@ footer {
   }
   .vert-bar {
     display: none;
+  }
+  .card-img-top {
+    height: auto;
+    max-height: 320px;
   }
 }
 
