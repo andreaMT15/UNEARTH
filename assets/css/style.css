@@ -1,3 +1,6 @@
+html {
+  min-height: 100%;
+}
 body {
   background-image: url("../images/project-background-1.jpg");
   background-size: cover;
@@ -10,15 +13,17 @@ body {
   z-index: 1;
 }
 
-.groot {
-  font-family: "Eczar", serif;
-  font-weight: 500;
-}
 
+.groot,
 .card-title {
   font-family: "Eczar", serif;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
+.groot {
+  font-weight: 500;
+}
+
 
 .card-sm {
   position: relative;
@@ -131,6 +136,22 @@ a:hover {
   margin-left: 20px;
   height: 70px;
   width: 70px;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  justify-content: center;
+  text-align: center;
+}
+.footer-item {
+  display: inline-block;
+  line-height: 2em;
+  color: rgb(122, 62, 22);
+  font-size: 1.1em;
 }
 
 @media only screen and (max-width: 1000px) {
