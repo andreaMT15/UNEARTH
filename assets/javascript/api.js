@@ -36,6 +36,7 @@ var hikingParameters = {
   //minium length default 0 mile
   minLength: "1"
 };
+//an array for storing the objects from the hiking project api
 var trailsArray = [];
 function fetchTrails(lat, long) {
   // the required parameters for the hiking api is latitude, longitude, and key
@@ -51,17 +52,26 @@ function fetchTrails(lat, long) {
     method: "GET"
   }).then(function(response) {
     // console.log(response);
+    // counter for knowing what card to attach the address to
     counter = 0;
+
     for (var i = 0; i < response.trails.length; i++) {
+      //setting the trail latitude and longitude to variables to be passed to google geolocation api to grab an address
       var trailLat = response.trails[i].latitude;
       var trailLng = response.trails[i].longitude;
+      //passing that info to get the address attached to the trail cards
       changeToAddress(trailLat, trailLng, "trail");
+      // setting up an object to save the data from api to
       var trailObject = {};
       trailObject = response.trails[i];
+      //pushing the trail objects to a global array
       trailsArray.push(trailObject);
+      // making a div that will be used for spacing the trail cards
       var spacing = $("<div class='col-md-2'></div>");
 
+      // setting up the cards that the trail info will be attached to
       var newCard = $("<div class='card col-md-5'>");
+      //for if else statement that puts a groot picture up if there is no picture
       if (
         response.trails[i].imgMedium === "" ||
         response.trails[i].imgMedium == undefined
@@ -71,35 +81,45 @@ function fetchTrails(lat, long) {
             "assets/images/groot.jpg"
           } alt=hiking-trail${i}a>`
         );
-      } else {
+      }
+      //if there is a picture there get it ready to be appended on to the dom
+      else {
         var cardImg = $(
           `<img class="card-img-top" src=${
             response.trails[i].imgMedium
           } alt=hiking-trail${i}a>`
         );
       }
+      // making a card body for the trails
       var cardBody = $("<div class=card-body>");
+      //setting up the card title
       var cardTitle = $("<h5 class=card-title>");
+      //getting the title from the api
       cardTitle.text(response.trails[i].name);
+      // setting up the paragraph element to hold the trail info
       var cardText = $(`<p class='card-text' id=trail-${i}>`);
+      // putting the difficulty, length, and rating
       cardText.html(
         `${response.trails[i].summary} <br> <b>Difficulty:</b> ${
           response.trails[i].difficulty
         }.  <b>Length:</b>  ${response.trails[i].length}  Miles. 
         <b>Stars:</b> ${response.trails[i].stars}.  `
       );
+      //setting up the container for a dropdown menu button for nearby searches
       var cardDropdown = $("<div class='dropdown'>");
-
+      // setting up the button to be dropped down
       var dropdownButton = $(
         '<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
       );
-      dropdownButton.text("Search nearby!");
 
+      dropdownButton.text("Search nearby!");
+      //the div that holds the drop down buttons
       var dropdownMenu = $(
         '<div class="dropdown-menu" aria-labelledby="dropdownMenu2">'
       );
+      //the buttons to be dropped down for searching nearby the trail using the keywords with google places api
       var busButton = $(
-        `<button class="dropdown-item" type="button" id="bus" data-lat='${
+        `<button class="dropdown-item nearby" type="button" id="bus" data-lat='${
           response.trails[i].latitude
         }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
@@ -123,6 +143,7 @@ function fetchTrails(lat, long) {
         }' data-trail='${i}' data-lng='${response.trails[i].longitude}'>`
       );
       restaurantButton.text("Restaurant");
+
       dropdownMenu.append(busButton);
       dropdownMenu.append(trainButton);
       dropdownMenu.append(hostelButton);
@@ -135,6 +156,7 @@ function fetchTrails(lat, long) {
       newCard.append(cardTitle);
       newCard.append(cardText);
       newCard.append(cardDropdown);
+      //setting up an if else statement to put spacing between the cards
       if (i % 2 === 0) {
         $("#trails").append(newCard);
       } else {
@@ -144,19 +166,27 @@ function fetchTrails(lat, long) {
     }
   });
 }
-
+// on click event listener for search nearby
 $(document).on("click", ".nearby", function(event) {
+  //grabbing the latitude from the trail
   var lat = $(this).attr("data-lat");
+  //grabbing the longitude from the trail
   var lng = $(this).attr("data-lng");
+  //passing the latitude, and longitude to google geolocation api to attach it to new trail card
   changeToAddress(lat, lng, "origins");
+  //grabbing the type of place to search for to pass on to the google places api
   var type = $(this).attr("id");
+  //grabbing which trail is being searched nearby
   var trailNum = $(this).attr("data-trail");
+  // calling the google place api
   googlePlace(lat, lng, type, trailNum);
 });
+
 placesInfo = {
   // radius in meters  max meters: 50000
   radius: 2000
 };
+// function for calling google places to for searching near the trails
 function googlePlace(lat, lng, type, trailNum) {
   $("#trails").empty();
   var spacing = $("<div class='col-md-3'>");
@@ -210,60 +240,15 @@ function googlePlace(lat, lng, type, trailNum) {
     // console.log(response.results);
     if (response.results.length === 0 && placesInfo.radius <= 48000) {
       placesInfo.radius += 2000;
-      // console.log(placesInfo.radius);
+
       googlePlace(lat, lng, type, trailNum);
     }
-    // console.log(trailsArray);
-    // console.log(trailNum);
-    //     $("#trails").empty();
-    //     var spacing = $("<div class='col-md-3'>");
-    //     var newCard = $("<div class='card col-md-6'>");
-    //     var trailLat = trailsArray[trailNum].latitude;
-    //     var trailLng = trailsArray[trailNum].longitude;
-    //     counter = trailNum;
-
-    // var origin = changeToAddress(trailLat, trailLng, "");
-    // changeToAddress
-
-    //     if (
-    //       trailsArray[trailNum].imgMedium === "" ||
-    //       trailsArray[trailNum].imgMedium == undefined
-    //     ) {
-    //       var cardImg = $(
-    //         `<img class="card-img-top" src=
-    //           "assets/images/groot.jpg"
-    //         } alt=hiking-trail${trailNum}a>`
-    //       );
-    //     } else {
-    //       var cardImg = $(
-    //         `<img class="card-img-top" src=${
-    //           trailsArray[trailNum].imgMedium
-    //         } alt=hiking-trail${trailNum}a>`
-    //       );
-    //     }
-    //     var cardBody = $("<div class=card-body>");
-    //     var cardTitle = $("<h5 class=card-title>");
-    //     cardTitle.text(trailsArray[trailNum].name);
-    //     var cardText = $(`<p class='card-text' id='trail-${trailNum}'>`);
-    //     cardText.html(
-    //       `${trailsArray[trailNum].summary} <br> <b>Difficulty:</b> ${
-    //         trailsArray[trailNum].difficulty
-    //       }.  <b>Length:</b>  ${trailsArray[trailNum].length}  Miles.
-    //       <b>Stars:</b> ${trailsArray[trailNum].stars}.`
-    //     );
-
-    //     newCard.append(cardImg);
-    //     newCard.append(cardBody);
-    //     newCard.append(cardTitle);
-    //     newCard.append(cardText);
-    //     $("#trails").append(spacing);
-    //     $("#trails").append(newCard);
 
     for (var j = 0; j < response.results.length; j++) {
       var lat = response.results[j].geometry.location.lat;
       var lng = response.results[j].geometry.location.lng;
       var destination = `${response.results[j].vicinity}`;
-      // changeToAddress(lat, lng, "places");
+
       var newCard = $("<div class='card col-md-5'>");
       var spacing = $("<div class='col-md-2'></div>");
 
@@ -272,12 +257,17 @@ function googlePlace(lat, lng, type, trailNum) {
       cardTitle.text(response.results[j].name);
       var cardText = $(`<p class='card-text' id ='places-${j}' >`);
       cardText.html(
-        `<b>type of place:</b> ${response.results[j].types[0]}, ${
-          response.results[j].types[1]
-        }, <b>rating:</b> ${response.results[j].rating} <br> <b>Address</b> ${
+        `<b>rating:</b> ${response.results[j].rating} <br> <b>Address</b> ${
           response.results[j].vicinity
-        } `
+        } <br> <b>type of place:</b>  `
       );
+      for (var k = 0; k < response.results[j].types.length; k++) {
+        if (response.results[j].types[k] === "point_of_interest") {
+          break;
+        } else {
+          cardText.append(`${response.results[j].types[k]} `);
+        }
+      }
 
       newCard.append(cardBody);
       newCard.append(cardTitle);
@@ -289,7 +279,7 @@ function googlePlace(lat, lng, type, trailNum) {
         $("#trails").append(spacing);
         $("#trails").append(newCard);
       }
-      console.log(response);
+      // console.log(response);
       addDistance(origins, destination, j);
     }
 
@@ -317,22 +307,20 @@ function changeToAddress(lat, lng, target) {
     }
   });
 }
-
+// function for calling google distance api to find the distance from trail to nearby places
 function addDistance(origin, destination, k) {
-  console.log(origin);
-  console.log(destination);
+  // console.log(origin);
+  // console.log(destination);
   var googleDistanceURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin}&destinations=${destination}&key=${googleKey}`;
   $.ajax({
     url: googleDistanceURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
     $(`#places-${k}`).append(
-      `<br><b>${response.rows[0].elements[0].distance.text} <b>${
-        response.rows[0].elements[0].duration.text
-      }`
+      `<br><b>Distance:</b> ${
+        response.rows[0].elements[0].distance.text
+      } <b>Duration:</b> ${response.rows[0].elements[0].duration.text}`
     );
-    // console.log(response.results[0].formatted_address);
-    // $(`#${target}-${counter}`).append(`<b>Distance:</b> `);
   });
 }
