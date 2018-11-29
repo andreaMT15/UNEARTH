@@ -182,7 +182,7 @@ footer {
 }
 
 
-/* #ulogo {
+#ulogo {
   height: 70px;
   width: 70px;
   margin-left: 5px;
@@ -194,7 +194,7 @@ footer {
   width: 70px;
 }
 
-footer {
+/* footer {
   width: 100%;
   position: fixed;
   bottom: 0px;
