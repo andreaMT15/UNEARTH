@@ -93,6 +93,9 @@ h3 {
   text-align: center;
 }
 
+a:hover {
+  text-decoration: none;
+}
 #heading-box {
   background-color: darkgreen;
   opacity: 0.8;
