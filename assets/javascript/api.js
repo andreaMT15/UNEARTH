@@ -21,10 +21,12 @@ var hikingParameters = {
   //minium length default 0 mile
   minTrailLength: "1"
 };
+
 placesInfo = {
   // radius in meters  max meters: 50000
   radius: 2000
 };
+
 
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
 $(document).on("click", ".nearby", function(event) {
@@ -153,6 +155,7 @@ function makeNearbyCards(trailNum) {
     var newCard = $("<div class='card col-md-5'>");
     var spacing = $("<div class='col-md-2'></div>");
 
+
     var cardBody = $("<div class=card-body>");
     var cardTitle = $("<h5 class=card-title>");
     cardTitle.text(nearbyArray[i].name);
@@ -167,6 +170,7 @@ function makeNearbyCards(trailNum) {
         break;
       } else {
         cardText.append(`${nearbyArray[i].types[k]} `);
+
       }
 
       newCard.append(cardBody);

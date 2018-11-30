@@ -1,0 +1,74 @@
+body {
+  background-image: url("../images/groot.jpg");
+}
+
+#ulogo {
+  height: 70px;
+  width: 70px;
+  margin-left: 5px;
+}
+
+.Member {
+  font-size: 25pt;
+  font-family: "Rakkas", cursive;
+  color: white;
+  text-align: center;
+}
+
+#text {
+  color: white;
+  font-family: "Rakkas", cursive;
+  font-size: 14pt;
+  text-align: center;
+}
+
+h1 {
+  color: rgb(122, 62, 22);
+  line-height: 1.5em;
+  font-family: "Rakkas", cursive;
+  text-align: center;
+}
+
+.team {
+  text-align: center;
+  font-family: "Rakkas", cursive;
+  font-size: 22pt;
+  line-height: 2.5em;
+  background-color: rgb(122, 62, 22);
+  color: white;
+}
+
+.navbar-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+#navbarNav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+.nav-item {
+  color: rgb(34, 139, 34);
+  float: right;
+  margin: 0rem 1rem;
+  margin-top: 0.4em;
+  font-size: 1.5rem;
+}
+
+.nav-item:hover {
+  color: rgb(34, 139, 34);
+  transform: scale(1.2, 1.2);
+  text-decoration: none;
+}
+
+.navcol {
+  line-height: 4em;
+  padding: 0;
+}
+
+.active {
+  font-weight: bold;
+}
