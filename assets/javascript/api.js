@@ -27,7 +27,6 @@ placesInfo = {
   radius: 2000
 };
 
-
 var googleKey = "AIzaSyCaShTZRBQ_m2HC7wFZJ4M1OVe5a-YShPs";
 $(document).on("click", ".nearby", function(event) {
   //grabbing the latitude from the trail
@@ -155,7 +154,6 @@ function makeNearbyCards(trailNum) {
     var newCard = $("<div class='card col-md-5'>");
     var spacing = $("<div class='col-md-2'></div>");
 
-
     var cardBody = $("<div class=card-body>");
     var cardTitle = $("<h5 class=card-title>");
     cardTitle.text(nearbyArray[i].name);
@@ -170,7 +168,6 @@ function makeNearbyCards(trailNum) {
         break;
       } else {
         cardText.append(`${nearbyArray[i].types[k]} `);
-
       }
 
       newCard.append(cardBody);
@@ -240,7 +237,7 @@ function makeTrailCards() {
     var cardDropdown = $("<div class='dropdown'>");
     // setting up the button to be dropped down
     var dropdownButton = $(
-      '<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
+      '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
     );
 
     dropdownButton.text("Search nearby!");
