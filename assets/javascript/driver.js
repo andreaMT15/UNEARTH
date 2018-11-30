@@ -58,10 +58,11 @@ $(document).ready(function() {
    * on click, displays the advanced search form if it is hidden,
    * and hides it if it is showing.
    */
-  $("#adv-search-btn").on("click", function() {
+  $("#adv-search-drop").on("click", function() {
     event.preventDefault();
     if (!flagAdvancedSearch) {
       flagAdvancedSearch = true;
+      console.log(flagAdvancedSearch);
       $("#adv-search-form").show();
       $("#adv-search-btn").text("Basic Search");
     } else {
