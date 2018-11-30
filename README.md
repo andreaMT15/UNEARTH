@@ -15,9 +15,9 @@ Our design process consisted of the following phases.
 2. Design 
 - During this phase we chose our images, color scheme and continued to design the layout of our pages. 
 3. Development
-- Most of the coding was done during this phase. Utlizing javascript we pulled in API data from google and hiking project that allows users to input a zip code in order to search the nearest hiking trails and attractions. 
+- Most of the coding was done during this phase. Utilizing javascript we pulled in API data from google and hiking project that allows users to input a zip code in order to search the nearest hiking trails and attractions. 
 4. Launch
-- During this phase we tested all of our links and funtionality of our app and contineud to imporve the look and feel. 
+- During this phase we tested all of our links and functionality of our app and continued to improve the look and feel. 
  
 <img width="1430" alt="screen shot 2018-11-29 at 10 28 42 pm" src="https://user-images.githubusercontent.com/44379703/49268905-d63ca280-f427-11e8-8d64-d7765e856aac.png">
 <img width="1431" alt="screen shot 2018-11-29 at 10 29 11 pm" src="https://user-images.githubusercontent.com/44379703/49268916-dfc60a80-f427-11e8-9cb8-46c9c8c40ed4.png">
