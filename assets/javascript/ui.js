@@ -15,8 +15,7 @@ const defaultMinTrailLength = 0;
 const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
-const maxValueMaxTrailResults = 3;
-0;
+const maxValueMaxTrailResults = 30;
 
 /********************************************************************************
  * User Input for destination name (string)
