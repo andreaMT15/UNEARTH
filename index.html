@@ -62,6 +62,7 @@
     <link rel="icon" href="assets/images/groot_icon.png" />
   </head>
 
+<<<<<<< HEAD
   <body>
     <!-- Nav Bar Here -->
     <!-- Nav Bar Here -->
@@ -160,10 +161,88 @@
                         placeholder="Max of Results to Show (optional)"
                       />
                     </div>
+=======
+
+
+
+  <link rel="icon" href="assets/images/groot_icon.png">
+
+</head>
+
+<body>
+  <!-- Nav Bar Here -->
+  <!-- Nav Bar Here -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="row navbar-row">
+      <div class="col-4 navcol" id="img-col">
+        <a class="navbar-brand" href="index.html">
+          <!-- <<<<<<< New Code -->
+          <img src="assets/images/logo1.png" width="70" height="70" alt="" /></a>
+      </div>
+      <div class="col-4 navcol">
+        <a href="index.html">
+          <h1>UNEARTH</h1>
+        </a>
+      </div>
+      <div class="col-4 navcol">
+        <div id="navLinks">
+          <a class="nav-item" href="#">About Us</a>
+          <div class="nav-item vert-bar"> | </div>
+          <a class="nav-item active" href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrapper index-wrapper">
+
+    <!-- This is the zip code search -->
+    <div class="slideUp">
+      <div class="container" id="search">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 col-md-10 col-sm-12">
+            <!-- This is the green header box -->
+
+            <div class="container" id="heading-box">
+              <div class="row" id="instructions">
+                <div class="col-12">
+                  <h3 class="groot">Search a zip below to find a hiking trail near you!</h3>
+                </div>
+              </div>
+            </div>
+          </div> <!-- end row -->
+        </div>
+
+
+        <!-- This is the end of the green header box -->
+        <div class="row justify-content-center">
+          <div class="col-lg-7 col-md-8 col-sm-10">
+            <!--
+            row containing first form containing basic search bar and button
+          -->
+            <div class="row justify-content-center">
+              <form>
+                <!-- address search textbox -->
+                <div class="form-group">
+                  <input class="form-control" id="search-input" type="text" placeholder="Address or Zip Code (required)" />
+                </div>
+                <!-- end basic address search form -->
+                <div id="adv-search-form">
+                  <!-- advanced search form (hidden by default) -->
+                  <!-- <div class="form-group">
+                <input class="form-control" id="keyword-input" type="text" placeholder="Keyword (optional)" />
+              </div> -->
+                  <div class="form-group">
+                    <input class="form-control" id="search-radius-input" type="text" placeholder="Search Radius (optional)" />
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="min-trail-length-input" type="text" placeholder="Minimum Trail Length (optional)" />
+>>>>>>> af5fc7f363dfd4f81ef021de6ab864252e0320bd
                   </div>
                   <!-- end advanced search form -->
 
                   <!-- form search button (with dropdown) -->
+<<<<<<< HEAD
                   <div class="btn-group">
                     <button
                       id="search-btn"
@@ -191,19 +270,42 @@
                         Advanced Search
                       </button>
                     </div>
+=======
+                  <div class="form-group">
+                    <input class="form-control" id="max-results-input" type="text" placeholder="Max of Results to Show (optional)" />
                   </div>
-                  <!-- end button form group -->
-                </form>
-                <!-- end of advanced search form -->
-              </div>
-              <!-- end row containing advanced search form -->
+                </div>
+                <!-- end advanced search form -->
+
+                <!-- form search button (with dropdown) -->
+                <div class="btn-group">
+
+                  <button id="search-btn" type="submit" class="btn btn-success">
+
+                    Search
+                  </button>
+                  <button id="adv-search-drop" type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" id="custom-dropdown">
+                    <button id="adv-search-btn" type="button" class="dropdown-item">
+                      Advanced Search
+                    </button>
+>>>>>>> af5fc7f363dfd4f81ef021de6ab864252e0320bd
+                  </div>
+                </div>
+                <!-- end button form group -->
+              </form>
+              <!-- end of advanced search form -->
             </div>
-            <!-- end outer col -->
+            <!-- end row containing advanced search form -->
           </div>
-          <!-- end outer row -->
+          <!-- end outer col -->
         </div>
-        <!-- end container id="search" -->
+        <!-- end outer row -->
       </div>
+<<<<<<< HEAD
       <!-- New code -->
     </div>
 
@@ -234,6 +336,34 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
+=======
+      <!-- end container id="search" -->
+    </div>
+    <!--       New code -->
+
+  </div>
+
+  <!--   <footer>
+    <a class="footer-item" href="AboutUs.html">About Us</a>
+    <div class="footer-item"> | </div>
+    <a class="footer-item active" href="index.html">Home</a>
+  </footer> -->
+
+  <footer>
+
+    <div class="footer-copyright text-center py-3">© Unearth 2018
+    </div>
+
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+>>>>>>> af5fc7f363dfd4f81ef021de6ab864252e0320bd
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
