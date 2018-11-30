@@ -9,14 +9,20 @@ Our app is currently fully functional and pulling in the data regarding the trai
 The coding languages used for this app are html, css, and javascript. 
 The APIs used are hiking project and a few of Google’s options.
 
-
-Screenshots
-Include logo/demo screenshot etc.
+Our design process consisted of the following phases.
+1. Planning
+ - During this phase we researched the API's that we wanted to use, decided what the premises of our app would be and the functionality of the app and built a wireframe.
+2. Design 
+- During this phase we chose our images, color scheme and continued to design the layout of our pages. 
+3. Development
+- Most of the coding was done during this phase. Utlizing javascript we pulled in API data from google and hiking project that allows users to input a zip code in order to search the nearest hiking trails and attractions. 
+4. Launch
+- During this phase we tested all of our links and funtionality of our app and contineud to imporve the look and feel. 
  
-
 <img width="1430" alt="screen shot 2018-11-29 at 10 28 42 pm" src="https://user-images.githubusercontent.com/44379703/49268905-d63ca280-f427-11e8-8d64-d7765e856aac.png">
 <img width="1431" alt="screen shot 2018-11-29 at 10 29 11 pm" src="https://user-images.githubusercontent.com/44379703/49268916-dfc60a80-f427-11e8-9cb8-46c9c8c40ed4.png">
 <img width="1293" alt="screen shot 2018-11-29 at 10 29 42 pm" src="https://user-images.githubusercontent.com/44379703/49268919-e5bbeb80-f427-11e8-9980-c15a3b60f507.png">
 <img width="1438" alt="screen shot 2018-11-29 at 10 30 00 pm" src="https://user-images.githubusercontent.com/44379703/49268929-eeacbd00-f427-11e8-9440-0f42d57eae85.png">
 
-NORTHWESTERN CODING © Groot Tree
+NORTHWESTERN CODING © UNEARTH
+
