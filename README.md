@@ -9,9 +9,16 @@ Our app is currently fully functional and pulling in the data regarding the trai
 The coding languages used for this app are html, css, and javascript. 
 The APIs used are hiking project and a few of Google’s options.
 
-
-Screenshots
-Include logo/demo screenshot etc.
+Our design process consisted of the following phases.
+1. Planning
+ - During this phase we researched the API's that we wanted to use, decided what the premises of our app would be and the functionality of the app and built a wireframe.
+2. Design 
+- During this phase we chose our images, color scheme and continued to design the layout of our pages. 
+3. Development
+- Most of the coding was done during this phase. Utlizing javascript we pulled in API data from google and hiking project that allows users to input a zip code in order to search the nearest hiking trails and attractions. 
+4. Launch
+- During this phase we tested all of our links and funtionality of our app and contineud to imporve the look and feel. 
+ 
  
 
-NORTHWESTERN CODING © Groot Tree
+NORTHWESTERN CODING © UNEARTH
