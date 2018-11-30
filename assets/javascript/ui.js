@@ -15,7 +15,8 @@ const defaultMinTrailLength = 0;
 const defaultSearchRadius = 30;
 
 /** maximum allowed value for number of results to return from hiking API */
-const maxValueMaxTrailResults = 30;
+const maxValueMaxTrailResults = 3;
+0;
 
 /********************************************************************************
  * User Input for destination name (string)
@@ -31,7 +32,9 @@ function invalidInput(field, message) {
 function getAddress() {
   var userIn = formAddress.val();
   //invalid input condition
-  if (userIn === undefined || userIn === "") {
+  if (sessionStorage.getItem("address") === userIn) {
+    sessionStorage.setItem("currentProcess", "same");
+  } else if (userIn === undefined || userIn === "") {
     invalidInput(formAddress, "Invalid Input: Address");
     sessionStorage.setItem("address", "");
   } else {

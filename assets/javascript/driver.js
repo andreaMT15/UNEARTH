@@ -16,24 +16,31 @@ function search() {
   // removes 'invalid' class from any form elements
   // ('invalid' will be added again if it input is invalid)
   $(".invalid").each(function() {
-    $(this).removeClass("invalid")  
+    $(this).removeClass("invalid");
   });
 
   //address saved to session storage
   getAddress();
 
   console.log(sessionStorage.getItem("address"));
-  if (sessionStorage.getItem("address") === undefined ||
-    sessionStorage.getItem("address") === "") {
+  if (
+    sessionStorage.getItem("address") === undefined ||
+    sessionStorage.getItem("address") === ""
+  ) {
     console.log("Invalid Address");
   } else {
     // if advanced search
     if (flagAdvancedSearch) {
       getMinTrailLength();
       getMaxTrailResults();
-      getSearchDistance();
+      getSearchRadius();
     }
     //otherwise, all parameters will remain at default values
+    if (sessionStorage.getItem("currentProcess") === "same") {
+      sessionStorage.setItem("currentProcess", "trails");
+    } else {
+      sessionStorage.setItem("currentProcess", "search");
+    }
     window.open("results.html", "_self");
   }
 }
@@ -41,13 +48,11 @@ function search() {
 $(document).ready(function() {
   //user's last saved input is populated to search box for user convenience
   $("#search-input").text(sessionStorage.getItem("address"));
-  
-  
+
   $("#search-btn").on("click", function() {
     event.preventDefault();
     search();
   });
-
 
   /**
    * on click, displays the advanced search form if it is hidden,
@@ -59,7 +64,6 @@ $(document).ready(function() {
       flagAdvancedSearch = true;
       $("#adv-search-form").show();
       $("#adv-search-btn").text("Basic Search");
-
     } else {
       flagAdvancedSearch = false;
       $("#adv-search-form").hide();
